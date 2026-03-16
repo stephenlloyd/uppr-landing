@@ -3,401 +3,272 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>uppr — Science-Based Hypertrophy Training</title>
-  <meta name="description" content="Science-based hypertrophy training with equipment-aware progression and RIR ramps. Free 30-day trial.">
-
-  <!-- OG -->
-  <meta property="og:title" content="uppr — Hypertrophy Training">
-  <meta property="og:description" content="Science-based. Equipment-aware. Genuinely personal.">
+  <title>uppr — Your Coach in Your Pocket</title>
+  <meta name="description" content="The hypertrophy training app that adapts every week based on how you actually feel. Science-based. Equipment-aware. Free for 30 days.">
+  <meta property="og:title" content="uppr — Your Coach in Your Pocket">
+  <meta property="og:description" content="The training app that adapts. Science-based periodisation that runs itself.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://uppr.fit">
-  <meta property="og:site_name" content="uppr">
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="uppr — Hypertrophy Training">
-  <meta name="twitter:description" content="Science-based hypertrophy training with equipment-aware progression.">
-
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#0c0a09">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0c0a09;--surface:#171412;--card:#1c1917;--border:#292524;--text:#fafaf9;--body:#d6d3d1;--muted:#a8a29e;--dim:#78716c;--accent:#f97316;--accent-light:#fb923c;--accent-glow:rgba(249,115,22,0.1);--warm:#fbbf24}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .ctr{max-width:1120px;margin:0 auto;padding:0 24px}
+    h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text)}
 
-    :root {
-      --bg: #0A0A0A;
-      --surface: #141414;
-      --border: #222;
-      --text: #e5e5e5;
-      --muted: #888;
-      --accent: #16a34a;
-      --accent-light: #22c55e;
-    }
+    nav{padding:18px 0;position:sticky;top:0;z-index:50;background:rgba(12,10,9,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(41,37,36,0.6)}
+    nav .inner{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Plus Jakarta Sans';font-weight:800;font-size:24px;text-decoration:none;letter-spacing:-0.5px}
+    .logo .b{color:#fff} .logo .d{color:rgba(255,255,255,0.72);margin-left:-0.04em}
+    nav .links{display:flex;gap:24px;align-items:center}
+    nav .links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
+    nav .links a:hover{color:var(--text)}
 
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+    .hero{padding:100px 0 70px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,var(--accent-glow) 0%,transparent 60%);pointer-events:none}
+    .hero>*{position:relative;z-index:1}
+    .hero h1{font-weight:800;font-size:clamp(38px,6.5vw,68px);line-height:1.06;margin-bottom:24px;letter-spacing:-2px}
+    .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero .sub{font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.6}
+    .hero .sub strong{color:var(--text);font-weight:600}
+    .badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+    .badge-link{display:block;height:50px;transition:transform 0.2s,opacity 0.2s;opacity:0.9}
+    .badge-link:hover{transform:scale(1.04);opacity:1}
+    .badge-link img{height:50px;border-radius:8px}
+    .trial-line{color:var(--dim);font-size:14px}
+    .trial-line b{color:var(--accent);font-weight:600}
 
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .cred{padding:44px 0;border-top:1px solid var(--border)}
+    .cred-inner{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+    .cred-item{text-align:center}
+    .cred-item .val{font-family:'Plus Jakarta Sans';font-weight:800;font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px}
+    .cred-item .lbl{font-size:12px;color:var(--dim);margin-top:3px}
 
-    /* Nav */
-    nav {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    nav .inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 28px;
-      letter-spacing: -1px;
-      text-decoration: none;
-    }
-    .logo .bright { color: white; }
-    .logo .dim { color: rgba(255,255,255,0.78); margin-left: -0.04em; }
-    nav .cta-small {
-      background: var(--accent);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    nav .cta-small:hover { background: var(--accent-light); }
+    section{padding:80px 0}
+    .sh{text-align:center;margin-bottom:48px}
+    .sh h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+    .sh p{color:var(--muted);font-size:16px;max-width:540px;margin:0 auto}
 
-    /* Hero */
-    .hero {
-      padding: 100px 0 80px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: clamp(36px, 6vw, 64px);
-      line-height: 1.1;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
-    }
-    .hero h1 .accent { color: var(--accent-light); }
-    .hero p.sub {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 40px;
-    }
-    .hero .cta-group {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      padding: 16px 32px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      transition: background 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary:hover { background: var(--accent-light); }
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 16px 32px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      transition: border-color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-secondary:hover { border-color: #444; }
-    .hero .trial { color: var(--muted); font-size: 14px; margin-top: 16px; }
+    .objections{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .obj{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px}
+    .obj .q{font-weight:700;font-size:15px;color:var(--text);margin-bottom:8px}
+    .obj .a{font-size:14px;color:var(--muted);line-height:1.6}
+    .obj .a strong{color:var(--accent-light);font-weight:600}
 
-    /* Section */
-    section { padding: 80px 0; }
-    section h2 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 32px;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-    section .lead { color: var(--muted); font-size: 16px; margin-bottom: 40px; max-width: 600px; }
+    .comp-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow-x:auto}
+    table{width:100%;border-collapse:collapse;min-width:680px}
+    thead th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);padding:14px 14px;background:var(--surface);font-weight:600;text-align:center}
+    thead th:first-child{text-align:left}
+    thead th.hl{color:var(--accent)}
+    td{padding:13px 14px;font-size:13px;text-align:center;border-top:1px solid var(--border)}
+    td:first-child{text-align:left;font-weight:600;color:var(--text);font-size:14px}
+    .y{color:var(--accent);font-weight:800}
+    .n{color:#44403c}
+    .p{color:var(--warm)}
+    .s{color:var(--muted);font-size:12px}
 
-    /* Feature cards */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .card .icon { font-size: 28px; margin-bottom: 12px; }
-    .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-    .card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+    .fc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:border-color 0.3s}
+    .fc:hover{border-color:#44403c}
+    .fc .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .fc h3{font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px}
+    .fc p{font-size:14px;color:var(--muted);line-height:1.6}
 
-    /* How it works */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      counter-reset: step;
-    }
-    .step { counter-increment: step; }
-    .step::before {
-      content: counter(step);
-      display: block;
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: var(--accent);
-      color: white;
-      font-weight: 800;
-      font-size: 18px;
-      line-height: 40px;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-    .step h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .step p { font-size: 14px; color: var(--muted); }
+    .gbox{background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(251,191,36,0.03));border:1px solid rgba(249,115,22,0.2);border-radius:20px;padding:48px;text-align:center;max-width:720px;margin:0 auto}
+    .gbox .badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:12px;padding:6px 14px;border-radius:8px;margin-bottom:16px;text-transform:uppercase;letter-spacing:1.5px}
+    .gbox h2{font-size:26px;margin-bottom:12px;font-weight:800;letter-spacing:-0.5px}
+    .gbox p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto;line-height:1.6}
 
-    /* Coach section */
-    .coach-section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 48px;
-      text-align: center;
-    }
-    .coach-section h2 { margin-bottom: 16px; }
-    .coach-section p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 15px; }
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;counter-reset:s}
+    .sc{counter-increment:s;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px}
+    .sc::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--warm));color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:18px;margin-bottom:16px}
+    .sc h3{font-size:16px;font-weight:700;margin-bottom:8px} .sc p{font-size:14px;color:var(--muted);line-height:1.5}
 
-    /* FAQ */
-    .faq { max-width: 640px; }
-    details {
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-    }
-    details summary {
-      font-weight: 600;
-      font-size: 15px;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    details summary::after { content: "+"; color: var(--muted); font-size: 20px; }
-    details[open] summary::after { content: "−"; }
-    details p { color: var(--muted); font-size: 14px; margin-top: 12px; line-height: 1.6; }
+    .coach-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .coach-box h2{font-size:28px;font-weight:800;margin-bottom:12px}
+    .coach-box p{color:var(--muted);font-size:15px;line-height:1.6}
+    .coach-list{list-style:none;margin-top:16px}
+    .coach-list li{color:var(--muted);font-size:14px;padding:8px 0 8px 28px;position:relative;line-height:1.4}
+    .coach-list li::before{content:'';position:absolute;left:0;top:12px;width:16px;height:16px;border-radius:4px;background:var(--accent);opacity:0.15}
+    .coach-list li::after{content:'✓';position:absolute;left:3px;top:8px;color:var(--accent);font-weight:800;font-size:12px}
+    .coach-visual{background:linear-gradient(135deg,var(--surface),var(--card));border-radius:16px;padding:40px;text-align:center;color:var(--dim)}
+    .coach-visual .big{font-size:56px;margin-bottom:12px}
 
-    /* Final CTA */
-    .final-cta {
-      text-align: center;
-      padding: 80px 0;
-    }
+    .faq-list{max-width:660px;margin:0 auto}
+    .faq-list details{border-bottom:1px solid var(--border)}
+    .faq-list summary{font-weight:600;font-size:15px;padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;color:var(--text)}
+    .faq-list summary::after{content:'+';color:var(--dim);font-size:20px}
+    .faq-list details[open] summary::after{content:'−'}
+    .faq-list details p{color:var(--muted);font-size:14px;padding-bottom:20px;line-height:1.7}
 
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--text); }
-    footer .links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+    .final{padding:100px 0;text-align:center;position:relative;overflow:hidden}
+    .final::before{content:'';position:absolute;bottom:-50px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,var(--accent-glow),transparent 65%);pointer-events:none}
+    .final>*{position:relative}
+    .final h2{font-size:clamp(32px,5vw,44px);font-weight:800;margin-bottom:16px;letter-spacing:-1px}
+    .final .sub{color:var(--muted);font-size:17px;margin-bottom:36px}
 
-    @media (max-width: 640px) {
-      .hero { padding: 60px 0 40px; }
-      section { padding: 48px 0; }
-      .coach-section { padding: 32px 20px; }
-    }
+    footer{border-top:1px solid var(--border);padding:28px 0}
+    footer .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    footer .flinks{display:flex;gap:20px}
+    footer a{color:var(--dim);text-decoration:none;font-size:13px} footer a:hover{color:var(--body)}
+
+    @media(max-width:768px){.hero{padding:70px 0 50px}.coach-box{grid-template-columns:1fr}.cred-inner{gap:20px}}
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
-  <nav>
-    <div class="container inner">
-      <a href="/" class="logo">
-        <span class="bright">u</span><span class="bright">p</span><span class="dim">p</span><span class="dim">r</span>
-      </a>
-      <a href="https://app.uppr.fit/users/sign_up" class="cta-small">Start free trial</a>
-    </div>
-  </nav>
+<nav><div class="ctr inner">
+  <a href="/" class="logo"><span class="b">u</span><span class="b">p</span><span class="d">p</span><span class="d">r</span></a>
+  <div class="links">
+    <a href="#features">Features</a>
+    <a href="#compare">Compare</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</div></nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1>Training that <span class="accent">adapts</span> to you</h1>
-      <p class="sub">Science-based hypertrophy. Equipment-aware. Your feedback changes the plan. No guesswork — just smarter workouts.</p>
-      <div class="cta-group">
-        <a href="#" class="btn-primary">Download for iOS</a>
-        <a href="#" class="btn-secondary">Get it on Android</a>
-      </div>
-      <p class="trial">Free for 30 days. No credit card required.</p>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero"><div class="ctr">
+  <h1>Your coach in<br>your pocket. <em>Finally.</em></h1>
+  <p class="sub">The training app that <strong>adapts every week</strong> based on how you actually feel. Real science. Your equipment. Your favourite exercises. No spreadsheets, no guesswork — just a programme that gets smarter every session.</p>
+  <div class="badges">
+    <a href="#" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
+    <a href="#" class="badge-link"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height:50px"></a>
+  </div>
+  <p class="trial-line"><b>Free for 30 days.</b> No credit card. Cancel anytime.</p>
+</div></section>
 
-  <!-- Problem -->
-  <section>
-    <div class="container">
-      <h2>Most gym apps just count your reps</h2>
-      <p class="lead">They don't know your equipment. They don't adjust when you're struggling. They don't push harder when you're ready. uppr does all three.</p>
-    </div>
-  </section>
+<div class="cred"><div class="ctr"><div class="cred-inner">
+  <div class="cred-item"><div class="val">Research-backed</div><div class="lbl">Exercises chosen by science, not randomness</div></div>
+  <div class="cred-item"><div class="val">Periodised</div><div class="lbl">Intensity that builds week by week</div></div>
+  <div class="cred-item"><div class="val">Equipment-aware</div><div class="lbl">Every suggestion matches your gym</div></div>
+  <div class="cred-item"><div class="val">Adaptive</div><div class="lbl">Your feedback changes the actual plan</div></div>
+</div></div></div>
 
-  <!-- Features -->
-  <section>
-    <div class="container">
-      <h2>Built different</h2>
-      <p class="lead">Four things that make uppr actually useful.</p>
-      <div class="features">
-        <div class="card">
-          <div class="icon">📈</div>
-          <h3>RIR Ramp Progression</h3>
-          <p>Intensity builds automatically each week. Focus muscles get pushed harder. Deload built in. The same system elite coaches use — without needing to understand it.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🧠</div>
-          <h3>Feedback That Changes Things</h3>
-          <p>After every workout: two questions per muscle group. Too easy? It adds a set. Too hard? It pulls back. You see exactly what changed and why.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🔧</div>
-          <h3>Equipment-Aware</h3>
-          <p>Set up your gym once. Every exercise, every generated workout, every AI prompt matches what you actually have. Switch gyms mid-session — it handles conflicts.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🤖</div>
-          <h3>AI Plan Import</h3>
-          <p>Generate a plan with ChatGPT. Or paste your coach's programme in any format — the AI converts it. uppr adds automatic progression on top.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- PROBLEMS / OBJECTIONS -->
+<section><div class="ctr">
+  <div class="sh">
+    <h2>Sound familiar?</h2>
+    <p>Every lifter hits these walls. We built uppr to break through them.</p>
+  </div>
+  <div class="objections">
+    <div class="obj"><p class="q">"I bought a plan but it doesn't fit my gym"</p><p class="a">Set up your equipment profile — home gym, commercial, hotel, bodyweight. <strong>Every exercise is filtered to what you actually have.</strong> Travelling? Switch profiles in one tap and the app smartly swaps exercises to match.</p></div>
+    <div class="obj"><p class="q">"I'm following a PDF on my phone and it's a nightmare"</p><p class="a">Paste your coach's plan into ChatGPT with our prompt. <strong>It converts any format</strong> — spreadsheet, PDF, WhatsApp message — and adds intelligent weekly progression. Your coach's expertise stays. The admin disappears.</p></div>
+    <div class="obj"><p class="q">"I never know if I'm making progress or just showing up"</p><p class="a">Weekly reports with real data — not vibes. <strong>Strength trends, volume tracking, and a "reality check"</strong> that tells you what the numbers say, even when your feedback doesn't.</p></div>
+    <div class="obj"><p class="q">"I want to do my own thing sometimes without ruining my plan"</p><p class="a">Add a bonus workout, swap an exercise just for today, or skip a session entirely. <strong>Your plan works around your life</strong> — not the other way around. Nothing breaks.</p></div>
+  </div>
+</div></section>
 
-  <!-- How it works -->
-  <section>
-    <div class="container">
-      <h2>Three steps to smarter training</h2>
-      <p class="lead"></p>
-      <div class="steps">
-        <div class="step">
-          <h3>Set up your gym</h3>
-          <p>Tell uppr what equipment you have — barbell, dumbbells, cables, bodyweight, whatever. Takes 30 seconds.</p>
-        </div>
-        <div class="step">
-          <h3>Follow your plan</h3>
-          <p>Pick a template, import from AI, or just tap "Generate". Log your sets. The app handles weights, rest, and progression.</p>
-        </div>
-        <div class="step">
-          <h3>Get smarter every session</h3>
-          <p>Your feedback adjusts volume and intensity automatically. The weekly coach report shows what's working and what needs to change.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- FEATURES -->
+<section id="features"><div class="ctr">
+  <div class="sh">
+    <h2>A real training system.<br>Not another rep counter.</h2>
+  </div>
+  <div class="feat-grid">
+    <div class="fc"><div class="tag">Progression</div><h3>Science-based periodisation that runs itself</h3><p>Your intensity builds automatically across weeks using RIR ramps — the same system elite coaches use. Focus muscles get pushed harder while others recover. A deload arrives exactly when your body needs it. You just show up and lift.</p></div>
+    <div class="fc"><div class="tag">Adaptation</div><h3>Two questions. Real changes.</h3><p>After every session: how hard was it? How was the pump? Too easy — it adds a set. Too hard — it pulls back before you overtrain. You see exactly what changed: "Bench Press: 3 → 4 sets." No black box. No guesswork.</p></div>
+    <div class="fc"><div class="tag">Your exercises</div><h3>Favourites that stick</h3><p>Love incline dumbbell press? It'll appear in every generated workout. Hate upright rows? Gone forever. The app learns what you enjoy and prioritises it — because you're more likely to stick with training you actually like.</p></div>
+    <div class="fc"><div class="tag">Import</div><h3>Bring any plan. From anywhere.</h3><p>Jeff Cavaliere PDF? Paste it in. Your coach's Excel sheet? Paste it in. ChatGPT designed you a programme? Paste it in. The AI converts it and layers your equipment profile on top — so every exercise actually works for your setup.</p></div>
+    <div class="fc"><div class="tag">Travel</div><h3>Different gym? No problem.</h3><p>Switch to your hotel equipment profile in one tap. The app intelligently swaps exercises you can't do for ones you can — same muscles, same stimulus, different equipment. When you're home, switch back. Your plan doesn't skip a beat.</p></div>
+    <div class="fc"><div class="tag">Freedom</div><h3>Let your plan work around you</h3><p>Add a bonus workout without affecting your schedule. Swap an exercise just for today — it reverts next session. Skip a day and the queue just moves forward. No rigid calendar. No guilt. Train when life lets you.</p></div>
+  </div>
+</div></section>
 
-  <!-- For coaches -->
-  <section>
-    <div class="container">
-      <div class="coach-section">
-        <h2>For coaches</h2>
-        <p>Weekly reports that cut through the fluff. Phase-aware context tells you what to expect. A "reality check" section cross-references what the client said with what the data shows. Copy the report into any AI for instant programming adjustments.</p>
-      </div>
-    </div>
-  </section>
+<!-- COMPARISON -->
+<section id="compare"><div class="ctr">
+  <div class="sh">
+    <h2>How the best stack up</h2>
+    <p>A fair comparison. Every app has strengths — we just went further.</p>
+  </div>
+  <div class="comp-wrap"><table>
+    <thead><tr><th></th><th class="hl">uppr</th><th>RP Hypertrophy</th><th>Juggernaut AI</th><th>Alpha Progression</th><th>Strong</th></tr></thead>
+    <tbody>
+      <tr><td>Periodised RIR progression</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="p">Partial</td><td class="n">✗</td></tr>
+      <tr><td>Staggered intensity by muscle role</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Feedback adjusts your plan</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Equipment-aware workout generation</td><td class="y">✓</td><td class="n">✗</td><td class="p">Partial</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Multiple equipment profiles (travel, home, gym)</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Import any coach plan via AI</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Temporary exercise swaps ("just for today")</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Ad-hoc bonus workouts without breaking plan</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Discovery mode for new exercises</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Phase-aware coach reports</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Exercise preferences influence workouts</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="p">Partial</td><td class="n">✗</td></tr>
+      <tr><td>Research-backed exercise selection</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Exercise video library</td><td class="s">Coming soon</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
 
-  <!-- FAQ -->
-  <section>
-    <div class="container">
-      <h2>Questions</h2>
-      <div class="faq">
-        <details>
-          <summary>Do I need to understand RIR to use this?</summary>
-          <p>No. RIR (Reps In Reserve) is the science behind the progression, but you don't need to think about it. Just follow the workout, log your sets, and answer two simple questions after each session. The app handles the rest.</p>
-        </details>
-        <details>
-          <summary>What if I just want a quick workout?</summary>
-          <p>Tap "Generate a Workout", pick your time and energy level, and you're training in seconds. No plan required. You can preview the exercises, swap any you don't like, and add your own.</p>
-        </details>
-        <details>
-          <summary>Can I import a plan from my coach?</summary>
-          <p>Yes. Paste your coach's programme into ChatGPT with our prompt builder, and it converts it into a format uppr can run. Works with text, spreadsheets, PDFs — anything. The coach's programming is preserved; uppr just adds automatic weekly progression on top.</p>
-        </details>
-        <details>
-          <summary>What equipment do I need?</summary>
-          <p>Whatever you have. uppr works with barbells, dumbbells, cables, machines, bands, kettlebells, bodyweight, or any combination. Set up your equipment profile and every suggestion matches your setup.</p>
-        </details>
-        <details>
-          <summary>How much does it cost?</summary>
-          <p>Free for 30 days, then $9.99/month, $24.99/quarter, or $99.99/year. Cancel anytime from your device settings.</p>
-        </details>
-        <details>
-          <summary>Is my data private?</summary>
-          <p>Yes. We don't sell your data, don't use advertising trackers, and don't share your training information with anyone. You can export or delete your data at any time.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+<!-- GUARANTEE -->
+<section><div class="ctr"><div class="gbox">
+  <div class="badge">Our promise</div>
+  <h2>Train free for 30 days. If it's not for you, walk away.</h2>
+  <p>No credit card upfront. No dark patterns. If uppr doesn't make your training measurably smarter in 30 days — you've lost nothing. We don't want your money if we haven't earned it.</p>
+</div></div></section>
 
-  <!-- Final CTA -->
-  <section class="final-cta">
-    <div class="container">
-      <h2>Start training smarter</h2>
-      <p class="lead" style="margin: 12px auto 32px;">Free for 30 days. No credit card required.</p>
-      <div class="cta-group">
-        <a href="#" class="btn-primary">Download for iOS</a>
-        <a href="#" class="btn-secondary">Get it on Android</a>
-      </div>
-    </div>
-  </section>
+<!-- HOW IT WORKS -->
+<section><div class="ctr">
+  <div class="sh"><h2>From download to your first workout: 2 minutes</h2></div>
+  <div class="steps">
+    <div class="sc"><h3>Tell us your equipment</h3><p>Commercial gym, home setup, hotel room, or just your body. Takes 30 seconds. We'll never suggest an exercise you can't do.</p></div>
+    <div class="sc"><h3>Pick a plan — or don't</h3><p>Choose a template, import from AI, paste your coach's plan, or just tap Generate. Your favourite exercises take priority.</p></div>
+    <div class="sc"><h3>Train. Feedback. Evolve.</h3><p>Log your sets. Tell us how it felt. Watch the plan adapt to you — not a version of you from 6 weeks ago.</p></div>
+  </div>
+</div></section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="links">
-        <a href="https://app.uppr.fit/privacy">Privacy</a>
-        <a href="https://app.uppr.fit/terms">Terms</a>
-        <a href="mailto:hello@uppr.fit">Contact</a>
-        <a href="mailto:partners@uppr.fit">Affiliate Programme</a>
-      </div>
-      <p>
-        <span class="logo" style="font-size: 16px;">
-          <span class="bright">u</span><span class="bright">p</span><span class="dim">p</span><span class="dim">r</span>
-        </span>
-        — Science-based. Equipment-aware. Genuinely personal.
-      </p>
-    </div>
-  </footer>
+<!-- COACHES -->
+<section><div class="ctr"><div class="coach-box">
+  <div>
+    <h2>For coaches who want data, not excuses</h2>
+    <p>Weekly reports that tell you what to change, not just what happened.</p>
+    <ul class="coach-list">
+      <li>Phase-aware context — "This is peak week, expect fatigue"</li>
+      <li>Reality check — cross-references data with what the client told you</li>
+      <li>One-click copy into ChatGPT for instant plan adjustments</li>
+      <li>Volume tracking with overreach alerts</li>
+      <li>Pain flags before they become injuries</li>
+    </ul>
+  </div>
+  <div class="coach-visual"><div class="big">📊</div><p style="font-size:14px">Reports that make<br>AI coaching actually work</p></div>
+</div></div></section>
+
+<!-- FAQ -->
+<section id="faq"><div class="ctr">
+  <div class="sh"><h2>Questions</h2></div>
+  <div class="faq-list">
+    <details><summary>Do I need to understand RIR or periodisation?</summary><p>No. RIR is the science behind the progression, but you never need to think about it. Follow the workout, log your sets, answer two quick questions. The app handles everything else — like having a coach who never takes a day off.</p></details>
+    <details><summary>How does this compare to other hypertrophy apps?</summary><p>Apps like RP Hypertrophy and Juggernaut AI are excellent — they pioneered science-based training apps. We built on those foundations and added what we felt was missing: equipment awareness, AI plan import, coach plan conversion, multiple gym profiles for travel, discovery mode for new exercises, bonus workouts that don't break your plan, and exercise preferences that actually influence your sessions. The comparison table above is honest — see for yourself.</p></details>
+    <details><summary>Can I import my coach's plan?</summary><p>Yes — any format. Paste it into ChatGPT with our prompt builder and it converts text, spreadsheets, PDFs, even WhatsApp messages into something uppr can run. Your coach's programming is preserved — we layer your equipment profile on top and add automatic weekly progression.</p></details>
+    <details><summary>What if I travel a lot?</summary><p>Create equipment profiles for each situation — full gym, home gym, hotel room, bodyweight only. When you switch, the app intelligently swaps exercises that don't fit for alternatives that do. Same muscles, same stimulus, different equipment. Your plan doesn't skip a beat.</p></details>
+    <details><summary>What if I want to do something different without messing up my plan?</summary><p>Add a bonus workout — it doesn't affect your schedule at all. Or swap any exercise "just for today" — it reverts next session automatically. Or skip a day entirely — the queue just moves forward. Your plan works around your life.</p></details>
+    <details><summary>Is my data private?</summary><p>Yes. No ad trackers. No data sales. No third-party analytics. You can export everything as JSON/CSV or permanently delete your account and all data at any time.</p></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="final"><div class="ctr">
+  <h2>Stop following a spreadsheet.<br>Start <em style="font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent">training</em>.</h2>
+  <p class="sub">30 days free. No credit card. Your workouts will never be the same.</p>
+  <div class="badges">
+    <a href="#" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
+    <a href="#" class="badge-link"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height:50px"></a>
+  </div>
+</div></section>
+
+<footer><div class="ctr inner">
+  <div class="flinks">
+    <a href="https://app.uppr.fit/privacy">Privacy</a>
+    <a href="https://app.uppr.fit/terms">Terms</a>
+    <a href="mailto:hello@uppr.fit">Contact</a>
+    <a href="mailto:partners@uppr.fit">Partners</a>
+  </div>
+  <span style="font-size:12px;color:#333"><span class="logo" style="font-size:13px"><span class="b">u</span><span class="b">p</span><span class="d">p</span><span class="d">r</span></span> © 2026</span>
+</div></footer>
 
 </body>
 </html>
