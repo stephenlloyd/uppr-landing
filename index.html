@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>uppr — Your Coach in Your Pocket</title>
-  <meta name="description" content="The hypertrophy training app that adapts every week based on how you actually feel. Science-based. Equipment-aware. Free for 30 days.">
-  <meta property="og:title" content="uppr — Your Coach in Your Pocket">
-  <meta property="og:description" content="The training app that adapts. Science-based periodisation that runs itself.">
+  <title>uppr — Strength &amp; Hypertrophy Training That Adapts to You</title>
+  <meta name="description" content="A free strength and hypertrophy training app with periodised progression, equipment-aware workouts, 1RM tracking, and offline mode. Upgrade to Pro for smart suggestions and 100+ templates.">
+  <meta property="og:title" content="uppr — Hypertrophy Training That Adapts to You">
+  <meta property="og:description" content="Strength and hypertrophy training that adapts every week. Free to use. Equipment-aware. Works offline.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://uppr.fit">
   <meta name="twitter:card" content="summary_large_image">
@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0c0a09;--surface:#171412;--card:#1c1917;--border:#292524;--text:#fafaf9;--body:#d6d3d1;--muted:#a8a29e;--dim:#78716c;--accent:#f97316;--accent-light:#fb923c;--accent-glow:rgba(249,115,22,0.1);--warm:#fbbf24}
+    :root{--bg:#0c0a09;--surface:#171412;--card:#1c1917;--border:#292524;--text:#fafaf9;--body:#d6d3d1;--muted:#a8a29e;--dim:#78716c;--accent:#f97316;--accent-light:#fb923c;--accent-glow:rgba(249,115,22,0.1);--warm:#fbbf24;--green:#22c55e}
     html{scroll-behavior:smooth}
     body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     .ctr{max-width:1120px;margin:0 auto;padding:0 24px}
@@ -36,12 +36,13 @@
     .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero .sub{font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.6}
     .hero .sub strong{color:var(--text);font-weight:600}
-    .badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
-    .badge-link{display:block;height:50px;transition:transform 0.2s,opacity 0.2s;opacity:0.9}
+    .badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+    .badge-link{display:flex;align-items:center;height:52px;transition:transform 0.2s,opacity 0.2s;opacity:0.9}
     .badge-link:hover{transform:scale(1.04);opacity:1}
-    .badge-link img{height:50px;border-radius:8px}
+    .badge-link img{height:52px;border-radius:8px}
+    .badge-link.gp img{height:76px;margin:-12px 0}
     .trial-line{color:var(--dim);font-size:14px}
-    .trial-line b{color:var(--accent);font-weight:600}
+    .trial-line b{color:var(--green);font-weight:600}
 
     .cred{padding:44px 0;border-top:1px solid var(--border)}
     .cred-inner{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
@@ -61,26 +62,31 @@
     .obj .a strong{color:var(--accent-light);font-weight:600}
 
     .comp-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow-x:auto}
-    table{width:100%;border-collapse:collapse;min-width:680px}
+    table{width:100%;border-collapse:collapse;min-width:800px}
     thead th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);padding:14px 14px;background:var(--surface);font-weight:600;text-align:center}
     thead th:first-child{text-align:left}
-    thead th.hl{color:var(--accent)}
+    thead th.hl{color:var(--green)}
+    thead th.hlp{color:var(--accent)}
     td{padding:13px 14px;font-size:13px;text-align:center;border-top:1px solid var(--border)}
     td:first-child{text-align:left;font-weight:600;color:var(--text);font-size:14px}
-    .y{color:var(--accent);font-weight:800}
+    .y{color:var(--green);font-weight:800}
     .n{color:#44403c}
     .p{color:var(--warm)}
     .s{color:var(--muted);font-size:12px}
+    .free-col{background:rgba(34,197,94,0.04)}
+    .pro-col{background:rgba(249,115,22,0.04)}
 
     .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
     .fc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:border-color 0.3s}
     .fc:hover{border-color:#44403c}
-    .fc .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .fc .tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .fc .tag.free{color:var(--green)}
+    .fc .tag.pro{color:var(--accent)}
     .fc h3{font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px}
     .fc p{font-size:14px;color:var(--muted);line-height:1.6}
 
-    .gbox{background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(251,191,36,0.03));border:1px solid rgba(249,115,22,0.2);border-radius:20px;padding:48px;text-align:center;max-width:720px;margin:0 auto}
-    .gbox .badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:12px;padding:6px 14px;border-radius:8px;margin-bottom:16px;text-transform:uppercase;letter-spacing:1.5px}
+    .gbox{background:linear-gradient(135deg,rgba(34,197,94,0.06),rgba(249,115,22,0.03));border:1px solid rgba(34,197,94,0.2);border-radius:20px;padding:48px;text-align:center;max-width:720px;margin:0 auto}
+    .gbox .badge{display:inline-block;background:var(--green);color:#fff;font-weight:800;font-size:12px;padding:6px 14px;border-radius:8px;margin-bottom:16px;text-transform:uppercase;letter-spacing:1.5px}
     .gbox h2{font-size:26px;margin-bottom:12px;font-weight:800;letter-spacing:-0.5px}
     .gbox p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto;line-height:1.6}
 
@@ -89,21 +95,11 @@
     .sc::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--warm));color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:18px;margin-bottom:16px}
     .sc h3{font-size:16px;font-weight:700;margin-bottom:8px} .sc p{font-size:14px;color:var(--muted);line-height:1.5}
 
-    .coach-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-    .coach-box h2{font-size:28px;font-weight:800;margin-bottom:12px}
-    .coach-box p{color:var(--muted);font-size:15px;line-height:1.6}
-    .coach-list{list-style:none;margin-top:16px}
-    .coach-list li{color:var(--muted);font-size:14px;padding:8px 0 8px 28px;position:relative;line-height:1.4}
-    .coach-list li::before{content:'';position:absolute;left:0;top:12px;width:16px;height:16px;border-radius:4px;background:var(--accent);opacity:0.15}
-    .coach-list li::after{content:'✓';position:absolute;left:3px;top:8px;color:var(--accent);font-weight:800;font-size:12px}
-    .coach-visual{background:linear-gradient(135deg,var(--surface),var(--card));border-radius:16px;padding:40px;text-align:center;color:var(--dim)}
-    .coach-visual .big{font-size:56px;margin-bottom:12px}
-
     .faq-list{max-width:660px;margin:0 auto}
     .faq-list details{border-bottom:1px solid var(--border)}
     .faq-list summary{font-weight:600;font-size:15px;padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;color:var(--text)}
     .faq-list summary::after{content:'+';color:var(--dim);font-size:20px}
-    .faq-list details[open] summary::after{content:'−'}
+    .faq-list details[open] summary::after{content:'\2212'}
     .faq-list details p{color:var(--muted);font-size:14px;padding-bottom:20px;line-height:1.7}
 
     .final{padding:100px 0;text-align:center;position:relative;overflow:hidden}
@@ -117,7 +113,7 @@
     footer .flinks{display:flex;gap:20px}
     footer a{color:var(--dim);text-decoration:none;font-size:13px} footer a:hover{color:var(--body)}
 
-    @media(max-width:768px){.hero{padding:70px 0 50px}.coach-box{grid-template-columns:1fr}.cred-inner{gap:20px}}
+    @media(max-width:768px){.hero{padding:70px 0 50px}.cred-inner{gap:20px}}
   </style>
 </head>
 <body>
@@ -133,141 +129,140 @@
 
 <!-- HERO -->
 <section class="hero"><div class="ctr">
-  <h1>Your coach in<br>your pocket. <em>Finally.</em></h1>
-  <p class="sub">The training app that <strong>adapts every week</strong> based on how you actually feel. Real science. Your equipment. Your favourite exercises. No spreadsheets, no guesswork — just a programme that gets smarter every session.</p>
+  <h1>Training that<br>gets <em>smarter</em><br>every session.</h1>
+  <p class="sub">A strength and hypertrophy app that <strong>actually adapts</strong>. Periodised progression, equipment-aware workouts, 1RM tracking, and a discovery system that finds your working weight in 2 sets. Free to use. Works offline.</p>
   <div class="badges">
     <a href="#" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
-    <a href="#" class="badge-link"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height:50px"></a>
+    <a href="#" class="badge-link gp"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
   </div>
-  <p class="trial-line"><b>Free for 30 days.</b> No credit card. Cancel anytime.</p>
+  <p class="trial-line"><b>Free forever.</b> Pro features unlocked for 30 days. No credit card.</p>
+  <p style="margin-top:12px"><a href="https://app.uppr.fit" style="color:var(--dim);font-size:13px;text-decoration:none;border-bottom:1px solid var(--border)">Allergic to app stores? Use the web app &rarr;</a></p>
 </div></section>
 
 <div class="cred"><div class="ctr"><div class="cred-inner">
-  <div class="cred-item"><div class="val">Research-backed</div><div class="lbl">Exercises chosen by science, not randomness</div></div>
-  <div class="cred-item"><div class="val">Periodised</div><div class="lbl">Intensity that builds week by week</div></div>
+  <div class="cred-item"><div class="val">Works offline</div><div class="lbl">Log workouts with zero signal</div></div>
+  <div class="cred-item"><div class="val">100+ templates</div><div class="lbl">PPL, Arnold, PHUL, and many more</div></div>
   <div class="cred-item"><div class="val">Equipment-aware</div><div class="lbl">Every suggestion matches your gym</div></div>
-  <div class="cred-item"><div class="val">Adaptive</div><div class="lbl">Your feedback changes the actual plan</div></div>
+  <div class="cred-item"><div class="val">1RM tracking</div><div class="lbl">Estimated from every set you log</div></div>
 </div></div></div>
 
-<!-- PROBLEMS / OBJECTIONS -->
+<!-- PROBLEMS -->
 <section><div class="ctr">
   <div class="sh">
     <h2>Sound familiar?</h2>
-    <p>Every lifter hits these walls. We built uppr to break through them.</p>
   </div>
   <div class="objections">
-    <div class="obj"><p class="q">"I bought a plan but it doesn't fit my gym"</p><p class="a">Set up your equipment profile — home gym, commercial, hotel, bodyweight. <strong>Every exercise is filtered to what you actually have.</strong> Travelling? Switch profiles in one tap and the app smartly swaps exercises to match.</p></div>
-    <div class="obj"><p class="q">"I'm following a PDF on my phone and it's a nightmare"</p><p class="a">Paste your coach's plan into ChatGPT with our prompt. <strong>It converts any format</strong> — spreadsheet, PDF, WhatsApp message — and adds intelligent weekly progression. Your coach's expertise stays. The admin disappears.</p></div>
-    <div class="obj"><p class="q">"I never know if I'm making progress or just showing up"</p><p class="a">Weekly reports with real data — not vibes. <strong>Strength trends, volume tracking, and a "reality check"</strong> that tells you what the numbers say, even when your feedback doesn't.</p></div>
-    <div class="obj"><p class="q">"I want to do my own thing sometimes without ruining my plan"</p><p class="a">Add a bonus workout, swap an exercise just for today, or skip a session entirely. <strong>Your plan works around your life</strong> — not the other way around. Nothing breaks.</p></div>
+    <div class="obj"><p class="q">"The plan doesn't match my gym"</p><p class="a">Set up your equipment once. <strong>Every exercise, every suggestion — filtered to what you actually have.</strong> Travelling? Switch profiles mid-workout. Exercises swap automatically.</p></div>
+    <div class="obj"><p class="q">"I never know what weight to use"</p><p class="a">Discovery mode finds your working weight for any new exercise in 2 sets. After that, <strong>the app tracks your 1RM and suggests weight + reps</strong> based on your actual strength, not a formula from a spreadsheet.</p></div>
+    <div class="obj"><p class="q">"Am I actually getting stronger?"</p><p class="a">Every set updates your estimated 1RM. <strong>Strength trends, volume tracking, and progress tiers</strong> show you exactly where you stand — not just how many times you showed up.</p></div>
+    <div class="obj"><p class="q">"I want flexibility, not a rigid schedule"</p><p class="a">Skip a day, add a bonus workout, swap an exercise just for today. <strong>No calendar. No guilt.</strong> Your plan is a queue that moves when you do.</p></div>
+    <div class="obj"><p class="q">"How do I know my plan is actually good?"</p><p class="a">Every plan is built against research-backed volume targets. <strong>Every muscle group is covered</strong> — focus muscles get growth-level volume, everything else gets enough to maintain. You choose the goal, the app makes sure nothing gets missed.</p></div>
+    <div class="obj"><p class="q">"I don't have time for an hour workout"</p><p class="a">You don't need one. <strong>What matters is hitting your weekly volume — not when you do it.</strong> Split it across short sessions, do it all at once, train at 6am or 11pm. The app doesn't care when. It just tracks that you did.</p></div>
   </div>
 </div></section>
 
 <!-- FEATURES -->
 <section id="features"><div class="ctr">
   <div class="sh">
-    <h2>A real training system.<br>Not another rep counter.</h2>
+    <h2>What you actually get</h2>
+    <p>Free users get a genuinely useful app. Pro unlocks the smart stuff.</p>
   </div>
   <div class="feat-grid">
-    <div class="fc"><div class="tag">Progression</div><h3>Science-based periodisation that runs itself</h3><p>Your intensity builds automatically across weeks using RIR ramps — the same system elite coaches use. Focus muscles get pushed harder while others recover. A deload arrives exactly when your body needs it. You just show up and lift.</p></div>
-    <div class="fc"><div class="tag">Adaptation</div><h3>Two questions. Real changes.</h3><p>After every session: how hard was it? How was the pump? Too easy — it adds a set. Too hard — it pulls back before you overtrain. You see exactly what changed: "Bench Press: 3 → 4 sets." No black box. No guesswork.</p></div>
-    <div class="fc"><div class="tag">Your exercises</div><h3>Favourites that stick</h3><p>Love incline dumbbell press? It'll appear in every generated workout. Hate upright rows? Gone forever. The app learns what you enjoy and prioritises it — because you're more likely to stick with training you actually like.</p></div>
-    <div class="fc"><div class="tag">Import</div><h3>Bring any plan. From anywhere.</h3><p>Jeff Cavaliere PDF? Paste it in. Your coach's Excel sheet? Paste it in. ChatGPT designed you a programme? Paste it in. The AI converts it and layers your equipment profile on top — so every exercise actually works for your setup.</p></div>
-    <div class="fc"><div class="tag">Travel</div><h3>Different gym? No problem.</h3><p>Switch to your hotel equipment profile in one tap. The app intelligently swaps exercises you can't do for ones you can — same muscles, same stimulus, different equipment. When you're home, switch back. Your plan doesn't skip a beat.</p></div>
-    <div class="fc"><div class="tag">Freedom</div><h3>Let your plan work around you</h3><p>Add a bonus workout without affecting your schedule. Swap an exercise just for today — it reverts next session. Skip a day and the queue just moves forward. No rigid calendar. No guilt. Train when life lets you.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Build your own plans</h3><p>Create custom training plans from scratch. Choose your days, muscle groups, exercises, and focus areas. Set your own RIR progression. You're the coach — the app does the admin. 5 starter templates included.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Full workout logging</h3><p>Sets, reps, weight, RIR. Exercise swapping mid-workout. Quick workouts by muscle group. Skip sessions, add bonus workouts, flex your schedule. Works offline. No ads.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Discovery mode &amp; 1RM tracking</h3><p>New exercise? Two calibration sets and the app finds your working weight. Every set you log updates your estimated 1RM. Watch your strength build over time — no spreadsheet needed.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Exercise preferences &amp; catalogue</h3><p>345 exercises with muscle groups, form cues, and substitutes. Love the ones you enjoy — they get priority in every workout. Dislike the ones you hate — gone forever. Your taste shapes your training.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Off season? We'll be here.</h3><p>Taking a break from Pro? Your data, plans, and history stay. The free tier is a genuine training app — not a locked demo. Come back to Pro when you're ready and pick up where you left off.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Smart Coach workouts</h3><p>Not sure what to train? Smart Coach analyses your last 2 weeks, finds the muscles you've been neglecting, and builds a session that fills the gaps. Uses your preferences, equipment, and history.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Smart weight &amp; rep targets</h3><p>Based on your 1RM and target RIR, the app tells you exactly what weight to use and how many reps to aim for. Adjusts for fatigue across sets. Change the weight — reps update in real time.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Custom equipment profiles</h3><p>Full gym, home setup, hotel, travel. Create profiles for each situation and switch mid-workout — exercises swap automatically to match your equipment. Unlimited profiles.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>100+ training templates</h3><p>PPL, Arnold, PHAT, PHUL, Gamma Bomb, Strong Curves, and many more. 2-day to 6-day. Each built with volume targets from the research literature.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Import any plan</h3><p>Your coach's PDF. An AI-generated programme. An Excel sheet. Paste it in, the AI converts it, and your equipment profile filters it. Your coach's expertise stays — the admin disappears.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Periodised progression</h3><p>RIR ramps build intensity week by week. Focus muscles get pushed harder. A deload arrives when your body needs it. The same system elite coaches charge hundreds for.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Coach reports &amp; analytics</h3><p>Weekly reports with strength trends, volume compliance, and a reality check that cross-references your feedback with the data. Copy into your preferred AI for instant coaching advice.</p></div>
   </div>
 </div></section>
 
 <!-- COMPARISON -->
 <section id="compare"><div class="ctr">
   <div class="sh">
-    <h2>How the best stack up</h2>
-    <p>A fair comparison. Every app has strengths — we just went further.</p>
+    <h2>Honest comparison</h2>
+    <p>Every app on this list is good. We just think we offer more — especially for free.</p>
   </div>
   <div class="comp-wrap"><table>
-    <thead><tr><th></th><th class="hl">uppr</th><th>RP Hypertrophy</th><th>Juggernaut AI</th><th>Alpha Progression</th><th>Strong</th></tr></thead>
+    <thead><tr><th></th><th class="hl">uppr Free</th><th class="hlp">uppr Pro</th><th>Hevy</th><th>RP Hypertrophy</th><th>Juggernaut AI</th><th>Strong</th></tr></thead>
     <tbody>
-      <tr><td>Periodised RIR progression</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="p">Partial</td><td class="n">✗</td></tr>
-      <tr><td>Staggered intensity by muscle role</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Feedback adjusts your plan</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Equipment-aware workout generation</td><td class="y">✓</td><td class="n">✗</td><td class="p">Partial</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Multiple equipment profiles (travel, home, gym)</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Import any coach plan via AI</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Temporary exercise swaps ("just for today")</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Ad-hoc bonus workouts without breaking plan</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Discovery mode for new exercises</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Phase-aware coach reports</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Exercise preferences influence workouts</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="p">Partial</td><td class="n">✗</td></tr>
-      <tr><td>Research-backed exercise selection</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Exercise video library</td><td class="s">Coming soon</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+      <tr><td>Workout logging</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Exercise catalogue</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Works offline</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="n">✗</td><td class="s">?</td><td class="s">?</td></tr>
+      <tr><td>Exercise preferences (love/dislike)</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
+      <tr><td>Discovery mode (auto weight calibration)</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
+      <tr><td>Quick workouts by muscle group</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
+      <tr><td>Smart Coach (gap-filling AI workouts)</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
+      <tr><td>Flexible plans (skip, swap, bonus sessions)</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="p">Partial</td><td class="s">?</td><td class="n">✗</td></tr>
+      <tr><td>1RM estimation &amp; tracking</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Smart weight &amp; rep suggestions</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+      <tr><td>Periodised RIR progression</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+      <tr><td>Feedback adjusts your plan</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+      <tr><td>Custom equipment profiles</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
+      <tr><td>Import any plan via AI</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="s">?</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      <tr><td>Coach reports</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
+      <tr><td>Pre-built templates</td><td class="s free-col">5</td><td class="y pro-col">100+</td><td class="s">Community</td><td class="s">~40</td><td class="s">AI-generated</td><td class="n">✗</td></tr>
+      <tr><td>Exercise video library</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+      <tr><td>Community / social</td><td class="n free-col">✗</td><td class="n pro-col">✗</td><td class="y">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
     </tbody>
   </table></div>
 </div></section>
 
-<!-- GUARANTEE -->
+<!-- FREE TIER -->
 <section><div class="ctr"><div class="gbox">
-  <div class="badge">Our promise</div>
-  <h2>Train free for 30 days. If it's not for you, walk away.</h2>
-  <p>No credit card upfront. No dark patterns. If uppr doesn't make your training measurably smarter in 30 days — you've lost nothing. We don't want your money if we haven't earned it.</p>
+  <div class="badge">Genuinely free</div>
+  <h2>The free version isn't a demo.</h2>
+  <p>Full workout logging. Exercise preferences. Discovery mode. Offline support. 5 proven templates. Full exercise catalogue. No ads. No workout limits. No "upgrade to log your 4th set" nonsense. Use it forever.</p>
 </div></div></section>
 
 <!-- HOW IT WORKS -->
 <section><div class="ctr">
-  <div class="sh"><h2>From download to your first workout: 2 minutes</h2></div>
+  <div class="sh"><h2>Up and running in 2 minutes</h2></div>
   <div class="steps">
-    <div class="sc"><h3>Tell us your equipment</h3><p>Commercial gym, home setup, hotel room, or just your body. Takes 30 seconds. We'll never suggest an exercise you can't do.</p></div>
-    <div class="sc"><h3>Pick a plan — or don't</h3><p>Choose a template, import from AI, paste your coach's plan, or just tap Generate. Your favourite exercises take priority.</p></div>
-    <div class="sc"><h3>Train. Feedback. Evolve.</h3><p>Log your sets. Tell us how it felt. Watch the plan adapt to you — not a version of you from 6 weeks ago.</p></div>
+    <div class="sc"><h3>Set up your equipment</h3><p>Full gym, home setup, hotel, bodyweight — 30 seconds. Every exercise is filtered to what you have.</p></div>
+    <div class="sc"><h3>Love some exercises</h3><p>Heart your favourites. They'll appear in every generated workout and plan. Dislike the ones you hate — gone forever.</p></div>
+    <div class="sc"><h3>Pick a plan or just go</h3><p>Choose from 100+ templates, import from your coach, or tap Quick Workout and let the Smart Coach fill your training gaps.</p></div>
   </div>
 </div></section>
-
-<!-- COACHES -->
-<section><div class="ctr"><div class="coach-box">
-  <div>
-    <h2>For coaches who want data, not excuses</h2>
-    <p>Weekly reports that tell you what to change, not just what happened.</p>
-    <ul class="coach-list">
-      <li>Phase-aware context — "This is peak week, expect fatigue"</li>
-      <li>Reality check — cross-references data with what the client told you</li>
-      <li>One-click copy into ChatGPT for instant plan adjustments</li>
-      <li>Volume tracking with overreach alerts</li>
-      <li>Pain flags before they become injuries</li>
-    </ul>
-  </div>
-  <div class="coach-visual"><div class="big">📊</div><p style="font-size:14px">Reports that make<br>AI coaching actually work</p></div>
-</div></div></section>
 
 <!-- FAQ -->
 <section id="faq"><div class="ctr">
   <div class="sh"><h2>Questions</h2></div>
   <div class="faq-list">
-    <details><summary>Do I need to understand RIR or periodisation?</summary><p>No. RIR is the science behind the progression, but you never need to think about it. Follow the workout, log your sets, answer two quick questions. The app handles everything else — like having a coach who never takes a day off.</p></details>
-    <details><summary>How does this compare to other hypertrophy apps?</summary><p>Apps like RP Hypertrophy and Juggernaut AI are excellent — they pioneered science-based training apps. We built on those foundations and added what we felt was missing: equipment awareness, AI plan import, coach plan conversion, multiple gym profiles for travel, discovery mode for new exercises, bonus workouts that don't break your plan, and exercise preferences that actually influence your sessions. The comparison table above is honest — see for yourself.</p></details>
-    <details><summary>Can I import my coach's plan?</summary><p>Yes — any format. Paste it into ChatGPT with our prompt builder and it converts text, spreadsheets, PDFs, even WhatsApp messages into something uppr can run. Your coach's programming is preserved — we layer your equipment profile on top and add automatic weekly progression.</p></details>
-    <details><summary>What if I travel a lot?</summary><p>Create equipment profiles for each situation — full gym, home gym, hotel room, bodyweight only. When you switch, the app intelligently swaps exercises that don't fit for alternatives that do. Same muscles, same stimulus, different equipment. Your plan doesn't skip a beat.</p></details>
-    <details><summary>What if I want to do something different without messing up my plan?</summary><p>Add a bonus workout — it doesn't affect your schedule at all. Or swap any exercise "just for today" — it reverts next session automatically. Or skip a day entirely — the queue just moves forward. Your plan works around your life.</p></details>
-    <details><summary>Is my data private?</summary><p>Yes. No ad trackers. No data sales. No third-party analytics. You can export everything as JSON/CSV or permanently delete your account and all data at any time.</p></details>
+    <details><summary>What makes this different from Hevy or Strong?</summary><p>Hevy and Strong are excellent loggers — great for tracking what you did. uppr also tells you what to do next. It estimates your 1RM from every set, suggests weight and reps based on your actual strength, and adapts your plan based on feedback. Think of it as the difference between a notebook and a coach.</p></details>
+    <details><summary>How does it compare to RP Hypertrophy or Juggernaut?</summary><p>RP and Juggernaut pioneered science-based training apps and they're genuinely good. We added equipment awareness (they don't know what gym you're in), AI plan import (paste any coach plan), discovery mode (2 sets to find your working weight), multiple gym profiles, and a free tier that's actually usable. The comparison table is honest — we all have video libraries now, but we beat them on equipment awareness and flexibility.</p></details>
+    <details><summary>Do I need to understand RIR or periodisation?</summary><p>No. RIR is the engine under the hood. You just log your sets, answer "how was that?" and the app handles progression. If you do understand it — great, the RIR target is shown on every exercise so you know exactly what you're aiming for.</p></details>
+    <details><summary>What's discovery mode?</summary><p>When you do an exercise for the first time, the app runs you through 2 quick calibration sets — one light, one heavy. From that it estimates your 1RM and calculates your working weight. Takes about 4 minutes. After that, every suggestion is based on your actual strength.</p></details>
+    <details><summary>Does it work offline?</summary><p>Yes. The workout screen works with zero internet. Your data syncs when you're back online. No dropped sets because you trained in a basement gym with no signal.</p></details>
+    <details><summary>Can I import my coach's plan?</summary><p>Yes — any format. Use the built-in prompt builder with any AI. It converts spreadsheets, PDFs, text messages — whatever your coach sent you. Their programming is preserved, the app adds equipment filtering and weekly progression.</p></details>
+    <details><summary>What if I just want a quick workout?</summary><p>Tap Quick Workout, pick your time and target muscles. The Smart Coach analyses what you've been neglecting and builds a session that fills the gaps. It uses exercises you've done before (no discovery overhead) and respects your equipment and preferences.</p></details>
+    <details><summary>Is my data private?</summary><p>Yes. No ad trackers. No data sales. No third-party analytics. Export everything or delete your account at any time.</p></details>
   </div>
 </div></section>
 
 <!-- FINAL CTA -->
 <section class="final"><div class="ctr">
-  <h2>Stop following a spreadsheet.<br>Start <em style="font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent">training</em>.</h2>
-  <p class="sub">30 days free. No credit card. Your workouts will never be the same.</p>
+  <h2>Start training smarter.<br><em style="font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Today.</em></h2>
+  <p class="sub">Free forever. Pro unlocked for 30 days. No credit card.</p>
   <div class="badges">
     <a href="#" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
-    <a href="#" class="badge-link"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height:50px"></a>
+    <a href="#" class="badge-link gp"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
   </div>
 </div></section>
 
 <footer><div class="ctr inner">
   <div class="flinks">
-    <a href="https://app.uppr.fit/privacy">Privacy</a>
-    <a href="https://app.uppr.fit/terms">Terms</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
     <a href="mailto:hello@uppr.fit">Contact</a>
-    <a href="mailto:partners@uppr.fit">Partners</a>
   </div>
-  <span style="font-size:12px;color:#333"><span class="logo" style="font-size:13px"><span class="b">u</span><span class="b">p</span><span class="d">p</span><span class="d">r</span></span> © 2026</span>
+  <span style="font-size:12px;color:#333"><span class="logo" style="font-size:13px"><span class="b">u</span><span class="b">p</span><span class="d">p</span><span class="d">r</span></span> &copy; 2026</span>
 </div></footer>
 
 </body>
