@@ -21,6 +21,7 @@
     .ctr{max-width:1120px;margin:0 auto;padding:0 24px}
     h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text)}
 
+    /* Nav */
     nav{padding:18px 0;position:sticky;top:0;z-index:50;background:rgba(12,10,9,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(41,37,36,0.6)}
     nav .inner{display:flex;align-items:center;justify-content:space-between}
     .logo{font-family:'Plus Jakarta Sans';font-weight:800;font-size:24px;text-decoration:none;letter-spacing:-0.5px}
@@ -29,7 +30,8 @@
     nav .links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
     nav .links a:hover{color:var(--text)}
 
-    .hero{padding:100px 0 70px;text-align:center;position:relative;overflow:hidden}
+    /* Hero */
+    .hero{padding:80px 0 0;text-align:center;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,var(--accent-glow) 0%,transparent 60%);pointer-events:none}
     .hero>*{position:relative;z-index:1}
     .hero h1{font-weight:800;font-size:clamp(38px,6.5vw,68px);line-height:1.06;margin-bottom:24px;letter-spacing:-2px}
@@ -44,26 +46,51 @@
     .trial-line{color:var(--dim);font-size:14px}
     .trial-line b{color:var(--green);font-weight:600}
 
+    /* Hero - no phone, clean */
+
+    /* Credibility */
     .cred{padding:44px 0;border-top:1px solid var(--border)}
     .cred-inner{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
     .cred-item{text-align:center}
     .cred-item .val{font-family:'Plus Jakarta Sans';font-weight:800;font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px}
     .cred-item .lbl{font-size:12px;color:var(--dim);margin-top:3px}
 
+    /* Sections */
     section{padding:80px 0}
     .sh{text-align:center;margin-bottom:48px}
     .sh h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:12px}
     .sh p{color:var(--muted);font-size:16px;max-width:540px;margin:0 auto}
 
+    /* Objections */
     .objections{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .obj{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px}
+    .obj{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+    .obj:hover{border-color:#44403c;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.25)}
     .obj .q{font-weight:700;font-size:15px;color:var(--text);margin-bottom:8px}
     .obj .a{font-size:14px;color:var(--muted);line-height:1.6}
     .obj .a strong{color:var(--accent-light);font-weight:600}
 
+    /* Spotlight carousel — one big horizontal slider */
+    .spotlights-wrap{position:relative;overflow:hidden;padding:60px 0}
+    .spotlights-track{display:flex;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1)}
+    .spotlight{flex:0 0 100%;min-width:0}
+    .spotlight-inner{display:flex;align-items:center;gap:80px;max-width:960px;margin:0 auto;padding:0 48px;width:100%;min-height:480px}
+    .spotlight.flip .spotlight-inner{flex-direction:row-reverse}
+    .spotlight-text{flex:1 1 50%;min-width:0}
+    .spotlight-text .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:12px}
+    .spotlight-text h3{font-size:clamp(22px,2.5vw,30px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2}
+    .spotlight-text p{font-size:15px;color:var(--muted);line-height:1.7}
+    .spotlight-visual{flex:0 0 220px}
+    .spotlights-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
+    .spotlights-nav .arr{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s,color 0.2s,background 0.2s;font-size:18px}
+    .spotlights-nav .arr:hover{border-color:var(--accent);color:var(--accent);background:rgba(249,115,22,0.06)}
+    .spotlights-dots{display:flex;gap:8px;align-items:center}
+    .sl-dot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:background 0.3s,transform 0.3s}
+    .sl-dot.active{background:var(--accent);transform:scale(1.5)}
+
+    /* Comparison */
     .comp-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow-x:auto}
     table{width:100%;border-collapse:collapse;min-width:800px}
-    thead th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);padding:14px 14px;background:var(--surface);font-weight:600;text-align:center}
+    thead th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);padding:14px;background:var(--surface);font-weight:600;text-align:center}
     thead th:first-child{text-align:left}
     thead th.hl{color:var(--green)}
     thead th.hlp{color:var(--accent)}
@@ -76,25 +103,39 @@
     .free-col{background:rgba(34,197,94,0.04)}
     .pro-col{background:rgba(249,115,22,0.04)}
 
+    /* Feature grid */
     .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-    .fc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:border-color 0.3s}
-    .fc:hover{border-color:#44403c}
+    .fc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+    .fc:hover{border-color:#44403c;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
     .fc .tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
     .fc .tag.free{color:var(--green)}
     .fc .tag.pro{color:var(--accent)}
     .fc h3{font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px}
     .fc p{font-size:14px;color:var(--muted);line-height:1.6}
 
+    /* Free tier box */
     .gbox{background:linear-gradient(135deg,rgba(34,197,94,0.06),rgba(249,115,22,0.03));border:1px solid rgba(34,197,94,0.2);border-radius:20px;padding:48px;text-align:center;max-width:720px;margin:0 auto}
     .gbox .badge{display:inline-block;background:var(--green);color:#fff;font-weight:800;font-size:12px;padding:6px 14px;border-radius:8px;margin-bottom:16px;text-transform:uppercase;letter-spacing:1.5px}
     .gbox h2{font-size:26px;margin-bottom:12px;font-weight:800;letter-spacing:-0.5px}
     .gbox p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto;line-height:1.6}
 
+    /* Steps */
     .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;counter-reset:s}
-    .sc{counter-increment:s;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px}
+    .sc{counter-increment:s;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+    .sc:hover{border-color:#44403c;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.25)}
     .sc::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--warm));color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:18px;margin-bottom:16px}
     .sc h3{font-size:16px;font-weight:700;margin-bottom:8px} .sc p{font-size:14px;color:var(--muted);line-height:1.5}
 
+    /* Spotlight carousel (infinite loop per spotlight) */
+    .spotlight-carousel{position:relative;width:220px;aspect-ratio:9/19;overflow:hidden;border-radius:28px;box-shadow:0 24px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06)}
+    .spotlight-carousel .sp-phone{position:absolute;inset:0;opacity:0;transition:opacity 0.8s ease}
+    .spotlight-carousel .sp-phone.active{opacity:1}
+    .spotlight-carousel .sp-phone img{display:block;width:100%;height:100%;object-fit:cover;border-radius:28px}
+    /* Status bar / nav bar mask */
+    .spotlight-carousel::before{content:'';position:absolute;top:0;left:0;right:0;height:36px;background:linear-gradient(to bottom,var(--bg) 0%,var(--bg) 45%,transparent 100%);z-index:3;border-radius:28px 28px 0 0;pointer-events:none}
+    .spotlight-carousel::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(to top,var(--bg) 0%,var(--bg) 45%,transparent 100%);z-index:3;border-radius:0 0 28px 28px;pointer-events:none}
+
+    /* FAQ */
     .faq-list{max-width:660px;margin:0 auto}
     .faq-list details{border-bottom:1px solid var(--border)}
     .faq-list summary{font-weight:600;font-size:15px;padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;color:var(--text)}
@@ -102,18 +143,33 @@
     .faq-list details[open] summary::after{content:'\2212'}
     .faq-list details p{color:var(--muted);font-size:14px;padding-bottom:20px;line-height:1.7}
 
+    /* Final CTA */
     .final{padding:100px 0;text-align:center;position:relative;overflow:hidden}
     .final::before{content:'';position:absolute;bottom:-50px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,var(--accent-glow),transparent 65%);pointer-events:none}
     .final>*{position:relative}
     .final h2{font-size:clamp(32px,5vw,44px);font-weight:800;margin-bottom:16px;letter-spacing:-1px}
     .final .sub{color:var(--muted);font-size:17px;margin-bottom:36px}
 
+    /* Footer */
     footer{border-top:1px solid var(--border);padding:28px 0}
     footer .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
     footer .flinks{display:flex;gap:20px}
     footer a{color:var(--dim);text-decoration:none;font-size:13px} footer a:hover{color:var(--body)}
 
-    @media(max-width:768px){.hero{padding:70px 0 50px}.cred-inner{gap:20px}}
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:768px){
+      .hero{padding:60px 0 0}
+      .hero-phone{width:220px}
+      .cred-inner{gap:20px}
+      .spotlight-inner{flex-direction:column!important;gap:32px;text-align:center;padding:0 24px;min-height:auto}
+      .spotlight-text{flex:1 1 auto}
+      .spotlight-text p{max-width:100%}
+      .spotlight-visual{flex:0 0 auto;margin:0 auto}
+      .spotlight-carousel{width:180px}
+    }
   </style>
 </head>
 <body>
@@ -130,7 +186,7 @@
 <!-- HERO -->
 <section class="hero"><div class="ctr">
   <h1>Training that<br>gets <em>smarter</em><br>every session.</h1>
-  <p class="sub">A strength and hypertrophy app that <strong>actually adapts</strong>. Periodised progression, equipment-aware workouts, 1RM tracking, and a discovery system that finds your working weight in 2 sets. Free to use. Works offline.</p>
+  <p class="sub">Periodised hypertrophy with <strong>real progression</strong>. The app learns your strength, matches your equipment, and tells you exactly what to lift next. Free to use. Works offline.</p>
   <div class="badges">
     <a href="#" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
     <a href="#" class="badge-link gp"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
@@ -140,11 +196,112 @@
 </div></section>
 
 <div class="cred"><div class="ctr"><div class="cred-inner">
-  <div class="cred-item"><div class="val">Works offline</div><div class="lbl">Log workouts with zero signal</div></div>
-  <div class="cred-item"><div class="val">100+ templates</div><div class="lbl">PPL, Arnold, PHUL, and many more</div></div>
-  <div class="cred-item"><div class="val">Equipment-aware</div><div class="lbl">Every suggestion matches your gym</div></div>
-  <div class="cred-item"><div class="val">1RM tracking</div><div class="lbl">Estimated from every set you log</div></div>
+  <div class="cred-item"><div class="val">Works offline</div><div class="lbl">Log sets with zero signal</div></div>
+  <div class="cred-item"><div class="val">100+ templates</div><div class="lbl">PPL, Arnold, PHUL, and more</div></div>
+  <div class="cred-item"><div class="val">Equipment-aware</div><div class="lbl">Suggestions match your actual gym</div></div>
+  <div class="cred-item"><div class="val">1RM tracking</div><div class="lbl">Updated from every set you log</div></div>
 </div></div></div>
+
+<!-- FEATURE SPOTLIGHTS — screenshots woven into the story -->
+<section><div class="ctr">
+  <div class="sh">
+    <h2>Built for the gym, not the sofa</h2>
+    <p>Every screen earns its place. Here's what it looks like in practice.</p>
+  </div>
+
+  <div class="spotlights-wrap">
+    <div class="spotlights-track" id="spotlights-track">
+
+      <div class="spotlight">
+        <div class="spotlight-inner">
+          <div class="spotlight-text">
+            <div class="label">Your next session</div>
+            <h3>Open the app.<br>Know exactly what to do.</h3>
+            <p>Your plan, your equipment, your week. The home screen shows what's next with exercise previews, time estimates, and a one-tap start. No setup, no thinking.</p>
+          </div>
+          <div class="spotlight-visual">
+            <div class="spotlight-carousel" data-carousel>
+              <div class="sp-phone"><img src="ss-2-home.jpg" alt="Home screen" loading="lazy"></div>
+              <div class="sp-phone"><img src="ss-5-heatmap.jpg" alt="Training heatmap" loading="lazy"></div>
+              <div class="sp-phone"><img src="ss-9-continue.jpg" alt="Continue workout" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight flip">
+        <div class="spotlight-inner">
+          <div class="spotlight-text">
+            <div class="label">Mid-workout</div>
+            <h3>Every rep logged.<br>Every weight suggested.</h3>
+            <p>Weight and rep targets for every set based on your real 1RM. New exercise? Discovery mode finds your working weight in 2 sets. After that, the app handles it.</p>
+          </div>
+          <div class="spotlight-visual">
+            <div class="spotlight-carousel" data-carousel>
+              <div class="sp-phone"><img src="ss-1-workout.jpg" alt="Workout logging" loading="lazy"></div>
+              <div class="sp-phone"><img src="ss-10-discovery.jpg" alt="Discovery mode" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight">
+        <div class="spotlight-inner">
+          <div class="spotlight-text">
+            <div class="label">Strength ranking</div>
+            <h3>See where you stand.<br>Beginner to elite.</h3>
+            <p>Your estimated 1RM compared against real lifter data. Percentile rings, spider charts, strength trends over time. The kind of feedback that keeps you coming back.</p>
+          </div>
+          <div class="spotlight-visual">
+            <div class="spotlight-carousel" data-carousel>
+              <div class="sp-phone"><img src="ss-4-strength.jpg" alt="96th percentile" loading="lazy"></div>
+              <div class="sp-phone"><img src="ss-3-progress.jpg" alt="Progress dashboard" loading="lazy"></div>
+              <div class="sp-phone"><img src="ss-11-graph.jpg" alt="1RM progress graph" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight flip">
+        <div class="spotlight-inner">
+          <div class="spotlight-text">
+            <div class="label">Adapts to you</div>
+            <h3>3 taps after each exercise.<br>Your plan listens.</h3>
+            <p>Effort, pump, joint comfort. The app uses your answers to adjust volume, swap exercises, and schedule deloads. Feedback that actually shapes next week.</p>
+          </div>
+          <div class="spotlight-visual">
+            <div class="spotlight-carousel" data-carousel>
+              <div class="sp-phone active"><img src="ss-6-feedback.jpg" alt="Post-exercise feedback" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight">
+        <div class="spotlight-inner">
+          <div class="spotlight-text">
+            <div class="label">Plans + exercises</div>
+            <h3>100+ templates.<br>Or build your own.</h3>
+            <p>Browse proven plans, import from your coach, or create from scratch. Every exercise has video demos, form cues, and personalised preferences. Heart what you love.</p>
+          </div>
+          <div class="spotlight-visual">
+            <div class="spotlight-carousel" data-carousel>
+              <div class="sp-phone"><img src="ss-7-plans.jpg" alt="Training templates" loading="lazy"></div>
+              <div class="sp-phone"><img src="ss-8-exercise.jpg" alt="Exercise detail" loading="lazy"></div>
+              <div class="sp-phone"><img src="ss-12-catalogue.jpg" alt="Exercise catalogue" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="spotlights-nav">
+      <button class="arr" id="sl-prev">&#8592;</button>
+      <div class="spotlights-dots" id="sl-dots"></div>
+      <button class="arr" id="sl-next">&#8594;</button>
+    </div>
+  </div>
+</div></section>
 
 <!-- PROBLEMS -->
 <section><div class="ctr">
@@ -152,12 +309,12 @@
     <h2>Sound familiar?</h2>
   </div>
   <div class="objections">
-    <div class="obj"><p class="q">"The plan doesn't match my gym"</p><p class="a">Set up your equipment once. <strong>Every exercise, every suggestion — filtered to what you actually have.</strong> Travelling? Switch profiles mid-workout. Exercises swap automatically.</p></div>
-    <div class="obj"><p class="q">"I never know what weight to use"</p><p class="a">Discovery mode finds your working weight for any new exercise in 2 sets. After that, <strong>the app tracks your 1RM and suggests weight + reps</strong> based on your actual strength, not a formula from a spreadsheet.</p></div>
-    <div class="obj"><p class="q">"Am I actually getting stronger?"</p><p class="a">Every set updates your estimated 1RM. <strong>Strength trends, volume tracking, and progress tiers</strong> show you exactly where you stand — not just how many times you showed up.</p></div>
-    <div class="obj"><p class="q">"I want flexibility, not a rigid schedule"</p><p class="a">Skip a day, add a bonus workout, swap an exercise just for today. <strong>No calendar. No guilt.</strong> Your plan is a queue that moves when you do.</p></div>
-    <div class="obj"><p class="q">"How do I know my plan is actually good?"</p><p class="a">Every plan is built against research-backed volume targets. <strong>Every muscle group is covered</strong> — focus muscles get growth-level volume, everything else gets enough to maintain. You choose the goal, the app makes sure nothing gets missed.</p></div>
-    <div class="obj"><p class="q">"I don't have time for an hour workout"</p><p class="a">You don't need one. <strong>What matters is hitting your weekly volume — not when you do it.</strong> Split it across short sessions, do it all at once, train at 6am or 11pm. The app doesn't care when. It just tracks that you did.</p></div>
+    <div class="obj reveal"><p class="q">"The plan doesn't match my gym"</p><p class="a">Set up your equipment once. <strong>Every suggestion gets filtered to what you actually have.</strong> Travelling? Switch profiles mid-workout and exercises swap automatically.</p></div>
+    <div class="obj reveal"><p class="q">"I never know what weight to use"</p><p class="a">Try an exercise for the first time and the app finds your working weight in 2 sets. After that, <strong>it tracks your 1RM and gives you a target</strong> for every set.</p></div>
+    <div class="obj reveal"><p class="q">"Am I actually getting stronger?"</p><p class="a">Estimated 1RM updates with every set. <strong>Strength trends and progress rankings</strong> show exactly where you stand, not just how often you showed up.</p></div>
+    <div class="obj reveal"><p class="q">"I want flexibility, not a rigid schedule"</p><p class="a">Skip a day. Add a bonus session. Swap an exercise just for today. <strong>No calendar, no guilt.</strong> Your plan moves when you do.</p></div>
+    <div class="obj reveal"><p class="q">"How do I know my plan is any good?"</p><p class="a">Every plan runs against research-backed volume targets. <strong>Focus muscles get growth-level volume, everything else gets maintenance.</strong> Nothing falls through the cracks.</p></div>
+    <div class="obj reveal"><p class="q">"I don't have time for an hour"</p><p class="a">You don't need one. <strong>Weekly volume is what matters, not session length.</strong> Split it however you want. The app tracks that you did the work, not when.</p></div>
   </div>
 </div></section>
 
@@ -165,27 +322,27 @@
 <section id="features"><div class="ctr">
   <div class="sh">
     <h2>What you actually get</h2>
-    <p>Free users get a genuinely useful app. Pro unlocks the smart stuff.</p>
+    <p>Free users get a real app. Pro unlocks the smart stuff.</p>
   </div>
   <div class="feat-grid">
-    <div class="fc"><div class="tag free">Free</div><h3>Build your own plans</h3><p>Create custom training plans from scratch. Choose your days, muscle groups, exercises, and focus areas. Set your own RIR progression. You're the coach — the app does the admin. 5 starter templates included.</p></div>
-    <div class="fc"><div class="tag free">Free</div><h3>Full workout logging</h3><p>Sets, reps, weight, RIR. Exercise swapping mid-workout. Quick workouts by muscle group. Skip sessions, add bonus workouts, flex your schedule. Works offline. No ads.</p></div>
-    <div class="fc"><div class="tag free">Free</div><h3>Discovery mode &amp; 1RM tracking</h3><p>New exercise? Two calibration sets and the app finds your working weight. Every set you log updates your estimated 1RM. Watch your strength build over time — no spreadsheet needed.</p></div>
-    <div class="fc"><div class="tag free">Free</div><h3>Exercise preferences &amp; catalogue</h3><p>345 exercises with muscle groups, form cues, and substitutes. Love the ones you enjoy — they get priority in every workout. Dislike the ones you hate — gone forever. Your taste shapes your training.</p></div>
-    <div class="fc"><div class="tag free">Free</div><h3>Workout notes</h3><p>Add notes to any workout — superset pairings, tempo cues, rest periods, whatever helps you train. Coach plans include read-only instructions per session. Your notes persist across weeks so the setup is always there.</p></div>
-    <div class="fc"><div class="tag free">Free</div><h3>Strength ranking</h3><p>Every exercise shows where you stand — from beginner to elite — based on your estimated 1RM, bodyweight, and sex. Watch your rank climb as you get stronger. No guessing, no ego, just data.</p></div>
-    <div class="fc"><div class="tag free">Free</div><h3>Exercise video library</h3><p>Every exercise comes with a video demo and form cues. See exactly how to perform each movement before you start. No more guessing in the gym — just tap and watch.</p></div>
-    <div class="fc"><div class="tag free">Free</div><h3>Off season? We'll be here.</h3><p>Taking a break from Pro? Your data, plans, and history stay. The free tier is a genuine training app — not a locked demo. Come back to Pro when you're ready and pick up where you left off.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Smart Coach workouts</h3><p>Not sure what to train? Smart Coach analyses your last 2 weeks, finds the muscles you've been neglecting, and builds a session that fills the gaps. Uses your preferences, equipment, and history.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Smart weight &amp; rep targets</h3><p>Based on your 1RM and target RIR, the app tells you exactly what weight to use and how many reps to aim for. Adjusts for fatigue across sets. Change the weight — reps update in real time.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Custom equipment profiles</h3><p>Full gym, home setup, hotel, travel. Create profiles for each situation and switch mid-workout — exercises swap automatically to match your equipment. Unlimited profiles.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>100+ training templates</h3><p>PPL, Arnold, PHAT, PHUL, Gamma Bomb, Strong Curves, and many more. 2-day to 6-day. Each built with volume targets from the research literature.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Import any plan</h3><p>Your coach's PDF. An AI-generated programme. An Excel sheet. Paste it in, the AI converts it, and your equipment profile filters it. Your coach's expertise stays — the admin disappears.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Periodised progression</h3><p>RIR ramps build intensity week by week. Focus muscles get pushed harder. A deload arrives when your body needs it. The same system elite coaches charge hundreds for.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Coach reports &amp; analytics</h3><p>Weekly reports with strength trends, volume compliance, and a reality check that cross-references your feedback with the data. Copy into your preferred AI for instant coaching advice.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Your plan adapts to you</h3><p>Rate every workout. Too easy? Volume goes up. Joints hurting? The app dials it back. Hated an exercise? It gets swapped. Your feedback doesn't just get logged — it actually changes what happens next week.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Saved workouts</h3><p>Had a great session? Save it as a reusable template with one tap. Build a library of your favourite workouts and start any of them instantly. Your go-to sessions, always ready.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Smart supersets</h3><p>Pair exercises and the app alternates automatically. Smart recommendations rank pairings by compatibility — antagonist muscles, non-competing groups, matching equipment. Great pairs highlighted, tough pairs flagged. Never wonder what to superset with again.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Build your own plans</h3><p>Pick your days, muscle groups, exercises, and focus areas. Choose an RIR progression or let the app handle it. 5 starter templates included if you'd rather not start from scratch.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Full workout logging</h3><p>Sets, reps, weight, RIR. Swap exercises mid-workout. Quick workouts by muscle group. Skip sessions or add bonus ones. Works completely offline. No ads.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Discovery mode + 1RM</h3><p>New exercise? Two calibration sets and the app knows your working weight. From there, your estimated 1RM updates with every set you log.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>345 exercises, your way</h3><p>Full catalogue with muscle groups, form cues, and substitutes. Heart the ones you love and they get priority. Dislike the ones you don't and they're gone.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Workout notes</h3><p>Pin instructions to any workout: superset pairings, tempo cues, rest periods. Coach plans come with built-in notes per session. Yours persist across weeks.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Strength ranking</h3><p>See where you land for each exercise, from beginner to elite. Based on your 1RM, bodyweight, and sex. Watch your rank climb over time.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Exercise video library</h3><p>Video demos and form cues on every exercise. Tap to watch before your set. Helpful when you're trying something new.</p></div>
+    <div class="fc"><div class="tag free">Free</div><h3>Off season? We'll be here.</h3><p>Take a break from Pro and your data, plans, and history all stay. The free tier is a real training app, not a locked demo. Come back whenever.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Smart Coach workouts</h3><p>Not sure what to train? Smart Coach looks at your last 2 weeks, finds what you've been neglecting, and builds a session to fill the gaps.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Weight + rep targets</h3><p>Based on your 1RM and target RIR, you get an exact weight and rep count for every set. Adjusts for fatigue as you go. Change the weight and reps update in real time.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Equipment profiles</h3><p>Full gym, home setup, hotel, travel. Create a profile for each and switch mid-workout. Exercises swap automatically to match what's available.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>100+ templates</h3><p>PPL, Arnold, PHAT, PHUL, Gamma Bomb, Strong Curves, and plenty more. 2 to 6 days a week. Built against research-backed volume targets.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Import any plan</h3><p>Got a plan from your coach? A PDF, spreadsheet, or text message? Paste it in and the AI converts it. Your coach's programming stays intact, the app adds the smart stuff on top.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Periodised progression</h3><p>RIR ramps build intensity week over week. Focus muscles get pushed harder. A deload shows up when your body needs it. The kind of system coaches charge hundreds for.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Coach reports + analytics</h3><p>Weekly reports covering strength trends, volume compliance, and honest feedback analysis. Copy into your preferred AI for instant coaching advice.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Your plan adapts to you</h3><p>Rate each workout honestly. Too easy? Volume goes up. Joints aching? It dials back. Hated an exercise? Swapped out. Your feedback actually shapes next week.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Saved workouts</h3><p>Great session? Save it as a reusable template with one tap. Build up a library of your favourites and start any of them instantly.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Smart supersets</h3><p>Pair two exercises and the app alternates between them. Smart recommendations rank pairings by muscle compatibility and equipment. Good pairs highlighted, tough pairs flagged.</p></div>
   </div>
 </div></section>
 
@@ -193,32 +350,32 @@
 <section id="compare"><div class="ctr">
   <div class="sh">
     <h2>Honest comparison</h2>
-    <p>Every app on this list is good. We just think we offer more — especially for free.</p>
+    <p>Every app here is good. We just think we do more, especially for free.</p>
   </div>
   <div class="comp-wrap"><table>
     <thead><tr><th></th><th class="hl">uppr Free</th><th class="hlp">uppr Pro</th><th>Hevy</th><th>RP Hypertrophy</th><th>Juggernaut AI</th><th>Strong</th></tr></thead>
     <tbody>
-      <tr><td>Workout logging</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-      <tr><td>Exercise catalogue</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-      <tr><td>Works offline</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="n">✗</td><td class="s">?</td><td class="s">?</td></tr>
-      <tr><td>Exercise preferences (love/dislike)</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
-      <tr><td>Discovery mode (auto weight calibration)</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
-      <tr><td>Quick workouts by muscle group</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
-      <tr><td>Smart Coach (gap-filling AI workouts)</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
-      <tr><td>Flexible plans (skip, swap, bonus sessions)</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="s">?</td><td class="p">Partial</td><td class="s">?</td><td class="n">✗</td></tr>
-      <tr><td>1RM estimation &amp; tracking</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-      <tr><td>Smart weight &amp; rep suggestions</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
-      <tr><td>Periodised RIR progression</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
-      <tr><td>Feedback adjusts your plan</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
-      <tr><td>Custom equipment profiles</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
-      <tr><td>Import any plan via AI</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="s">?</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Coach reports</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
-      <tr><td>Strength ranking (beginner → elite)</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="n">✗</td><td class="s">?</td><td class="n">✗</td></tr>
-      <tr><td>Coach plans sent to you</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-      <tr><td>Smart supersets with pairing recommendations</td><td class="n free-col">✗</td><td class="y pro-col">✓</td><td class="p">Basic</td><td class="s">?</td><td class="s">?</td><td class="n">✗</td></tr>
-      <tr><td>Pre-built templates</td><td class="s free-col">5</td><td class="y pro-col">100+</td><td class="s">Community</td><td class="s">~40</td><td class="s">AI-generated</td><td class="n">✗</td></tr>
-      <tr><td>Exercise video library</td><td class="y free-col">✓</td><td class="y pro-col">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
-      <tr><td>Community / social</td><td class="n free-col">✗</td><td class="n pro-col">✗</td><td class="y">✓</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
+      <tr><td>Workout logging</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+      <tr><td>Exercise catalogue</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+      <tr><td>Works offline</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="n">&#10007;</td><td class="s">?</td><td class="s">?</td></tr>
+      <tr><td>Exercise preferences (love/dislike)</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
+      <tr><td>Discovery mode (auto weight calibration)</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="s">?</td><td class="s">?</td><td class="n">&#10007;</td></tr>
+      <tr><td>Quick workouts by muscle group</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="n">&#10007;</td></tr>
+      <tr><td>Smart Coach (AI gap-filler workouts)</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="s">?</td><td class="s">?</td><td class="n">&#10007;</td></tr>
+      <tr><td>Flexible plans (skip, swap, bonus sessions)</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="p">Partial</td><td class="s">?</td><td class="n">&#10007;</td></tr>
+      <tr><td>1RM estimation + tracking</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+      <tr><td>Smart weight + rep suggestions</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td></tr>
+      <tr><td>Periodised RIR progression</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td></tr>
+      <tr><td>Feedback adjusts your plan</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td></tr>
+      <tr><td>Equipment profiles</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
+      <tr><td>Import any plan via AI</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="n">&#10007;</td></tr>
+      <tr><td>Coach reports</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="n">&#10007;</td></tr>
+      <tr><td>Strength ranking (beginner to elite)</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="s">?</td><td class="n">&#10007;</td></tr>
+      <tr><td>Coach plans sent to you</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="n">&#10007;</td></tr>
+      <tr><td>Smart supersets with pairing recommendations</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="p">Basic</td><td class="s">?</td><td class="s">?</td><td class="n">&#10007;</td></tr>
+      <tr><td>Pre-built templates</td><td class="s free-col">5</td><td class="y pro-col">100+</td><td class="s">Community</td><td class="s">~40</td><td class="s">AI-generated</td><td class="n">&#10007;</td></tr>
+      <tr><td>Exercise video library</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td></tr>
+      <tr><td>Community / social</td><td class="n free-col">&#10007;</td><td class="n pro-col">&#10007;</td><td class="y">&#10003;</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
     </tbody>
   </table></div>
 </div></section>
@@ -227,31 +384,32 @@
 <section><div class="ctr"><div class="gbox">
   <div class="badge">Genuinely free</div>
   <h2>The free version isn't a demo.</h2>
-  <p>Full workout logging. Exercise preferences. Discovery mode. Offline support. 5 proven templates. Full exercise catalogue. No ads. No workout limits. No "upgrade to log your 4th set" nonsense. Use it forever.</p>
+  <p>Full workout logging. Exercise preferences. Discovery mode. Offline support. 5 proven templates. The entire exercise catalogue. No ads, no workout limits, no "upgrade to log your 4th set" nonsense. Use it forever.</p>
 </div></div></section>
 
 <!-- HOW IT WORKS -->
 <section><div class="ctr">
   <div class="sh"><h2>Up and running in 2 minutes</h2></div>
   <div class="steps">
-    <div class="sc"><h3>Set up your equipment</h3><p>Full gym, home setup, hotel, bodyweight — 30 seconds. Every exercise is filtered to what you have.</p></div>
-    <div class="sc"><h3>Love some exercises</h3><p>Heart your favourites. They'll appear in every generated workout and plan. Dislike the ones you hate — gone forever.</p></div>
-    <div class="sc"><h3>Pick a plan or just go</h3><p>Choose from 100+ templates, import from your coach, or tap Quick Workout and let the Smart Coach fill your training gaps.</p></div>
+    <div class="sc"><h3>Set up your equipment</h3><p>Full gym, home setup, hotel, bodyweight. Takes 30 seconds. Everything filters to what you have.</p></div>
+    <div class="sc"><h3>Heart some exercises</h3><p>Tap to favourite the ones you enjoy. They show up in every generated workout. Dislike the rest and they disappear.</p></div>
+    <div class="sc"><h3>Pick a plan or just go</h3><p>Choose from 100+ templates, import your coach's plan, or tap Quick Workout and let Smart Coach figure out what you need.</p></div>
   </div>
 </div></section>
+
 
 <!-- FAQ -->
 <section id="faq"><div class="ctr">
   <div class="sh"><h2>Questions</h2></div>
   <div class="faq-list">
-    <details><summary>What makes this different from Hevy or Strong?</summary><p>Hevy and Strong are excellent loggers — great for tracking what you did. uppr also tells you what to do next. It estimates your 1RM from every set, suggests weight and reps based on your actual strength, and adapts your plan based on feedback. Think of it as the difference between a notebook and a coach.</p></details>
-    <details><summary>How does it compare to RP Hypertrophy or Juggernaut?</summary><p>RP and Juggernaut pioneered science-based training apps and they're genuinely good. We added equipment awareness (they don't know what gym you're in), AI plan import (paste any coach plan), discovery mode (2 sets to find your working weight), multiple gym profiles, and a free tier that's actually usable. The comparison table is honest — we all have video libraries now, but we beat them on equipment awareness and flexibility.</p></details>
-    <details><summary>Do I need to understand RIR or periodisation?</summary><p>No. RIR is the engine under the hood. You just log your sets, answer "how was that?" and the app handles progression. If you do understand it — great, the RIR target is shown on every exercise so you know exactly what you're aiming for.</p></details>
-    <details><summary>What's discovery mode?</summary><p>When you do an exercise for the first time, the app runs you through 2 quick calibration sets — one light, one heavy. From that it estimates your 1RM and calculates your working weight. Takes about 4 minutes. After that, every suggestion is based on your actual strength.</p></details>
-    <details><summary>Does it work offline?</summary><p>Yes. The workout screen works with zero internet. Your data syncs when you're back online. No dropped sets because you trained in a basement gym with no signal.</p></details>
-    <details><summary>Can I import my coach's plan?</summary><p>Yes — any format. Use the built-in prompt builder with any AI. It converts spreadsheets, PDFs, text messages — whatever your coach sent you. Their programming is preserved, the app adds equipment filtering and weekly progression.</p></details>
-    <details><summary>What if I just want a quick workout?</summary><p>Tap Quick Workout, pick your time and target muscles. The Smart Coach analyses what you've been neglecting and builds a session that fills the gaps. It uses exercises you've done before (no discovery overhead) and respects your equipment and preferences.</p></details>
-    <details><summary>Is my data private?</summary><p>Yes. No ad trackers. No data sales. No third-party analytics. Export everything or delete your account at any time.</p></details>
+    <details><summary>What makes this different from Hevy or Strong?</summary><p>Hevy and Strong are great loggers. uppr also tells you what to do next. It estimates your 1RM from every set, gives you weight and rep targets based on your actual strength, and adjusts your plan based on how you felt. Think logger vs. coach.</p></details>
+    <details><summary>How does it compare to RP Hypertrophy or Juggernaut?</summary><p>RP and Juggernaut pioneered science-based training apps. We added equipment awareness (they don't know what gym you're in), AI plan import, discovery mode, multiple gym profiles, and a free tier that's genuinely usable. The comparison table is honest.</p></details>
+    <details><summary>Do I need to understand RIR or periodisation?</summary><p>Nope. RIR is the engine under the hood. You just log your sets, rate how it felt, and the app handles progression. If you do understand it, the target RIR is shown on every exercise.</p></details>
+    <details><summary>What's discovery mode?</summary><p>First time doing an exercise? The app runs 2 quick calibration sets, one light, one heavier. From that it estimates your 1RM and calculates working weight. Takes about 4 minutes. After that, suggestions are based on your real strength.</p></details>
+    <details><summary>Does it work offline?</summary><p>Yes. The workout screen works with zero internet. Data syncs when you're back online. No dropped sets because you trained somewhere with no signal.</p></details>
+    <details><summary>Can I import my coach's plan?</summary><p>Any format. Use the built-in prompt builder with any AI to convert spreadsheets, PDFs, or text messages. Your coach's programming is preserved and the app layers equipment filtering and weekly progression on top.</p></details>
+    <details><summary>What if I just want a quick workout?</summary><p>Tap Quick Workout, pick your target muscles. Smart Coach checks what you've been neglecting and builds a session to fill the gaps. Uses exercises you've done before so there's no discovery overhead.</p></details>
+    <details><summary>Is my data private?</summary><p>Yes. No ad trackers. No data sales. No third-party analytics. Export everything or delete your account any time.</p></details>
   </div>
 </div></section>
 
@@ -274,5 +432,74 @@
   <span style="font-size:12px;color:#333"><span class="logo" style="font-size:13px"><span class="b">u</span><span class="b">p</span><span class="d">p</span><span class="d">r</span></span> &copy; 2026</span>
 </div></footer>
 
+<script>
+// Scroll reveal
+var reveals=document.querySelectorAll('.reveal');
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}});
+},{threshold:0.15});
+reveals.forEach(function(el){ro.observe(el)});
+
+// Main spotlight slider
+(function(){
+  var track=document.getElementById('spotlights-track');
+  var slides=track.querySelectorAll('.spotlight');
+  var dotsWrap=document.getElementById('sl-dots');
+  var prev=document.getElementById('sl-prev');
+  var next=document.getElementById('sl-next');
+  var current=0;
+  var total=slides.length;
+
+  // Build dots
+  slides.forEach(function(_,i){
+    var d=document.createElement('div');
+    d.className='sl-dot'+(i===0?' active':'');
+    d.onclick=function(){goTo(i)};
+    dotsWrap.appendChild(d);
+  });
+  var dots=dotsWrap.querySelectorAll('.sl-dot');
+
+  function goTo(idx){
+    // Infinite wrap
+    if(idx<0) idx=total-1;
+    if(idx>=total) idx=0;
+    current=idx;
+    track.style.transform='translateX(-'+current*100+'%)';
+    dots.forEach(function(d,i){d.className='sl-dot'+(i===current?' active':'')});
+  }
+
+  prev.onclick=function(){goTo(current-1)};
+  next.onclick=function(){goTo(current+1)};
+
+  // Swipe support
+  var startX=0;
+  track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX},{passive:true});
+  track.addEventListener('touchend',function(e){
+    var diff=startX-e.changedTouches[0].clientX;
+    if(Math.abs(diff)>50){diff>0?goTo(current+1):goTo(current-1)}
+  },{passive:true});
+
+  // Auto-advance the main slider every 8 seconds
+  var autoTimer=setInterval(function(){goTo(current+1)},8000);
+  // Pause on interaction
+  [prev,next].concat(Array.from(dots)).forEach(function(el){
+    el.addEventListener('click',function(){clearInterval(autoTimer)});
+  });
+})();
+
+// Inner phone crossfade carousels
+document.querySelectorAll('[data-carousel]').forEach(function(carousel){
+  var phones=carousel.querySelectorAll('.sp-phone');
+  if(phones.length<2){phones[0]&&phones[0].classList.add('active');return}
+  var current=0;
+  phones[0].classList.add('active');
+  function advance(){
+    phones[current].classList.remove('active');
+    current=(current+1)%phones.length;
+    phones[current].classList.add('active');
+  }
+  setInterval(advance,3500);
+});
+</script>
 </body>
 </html>
