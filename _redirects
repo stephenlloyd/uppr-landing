@@ -1,0 +1,4 @@
+# Clean URLs (the nginx config used `try_files` for this; Sevalla needs explicit rules).
+# Format: <from>  <to>  <status>
+/privacy  /privacy.html  200
+/terms    /terms.html    200
