@@ -3,6 +3,5 @@
 /privacy  /privacy.html  200
 /terms    /terms.html    200
 
-# Free split-review tool — 302 to the Rails app.
-/review   https://app.uppr.fit/review  302
-/review/* https://app.uppr.fit/review/:splat  302
+# Free split-review tool — now self-contained on the landing site (JS engine).
+/review   /review.html   200
