@@ -3,5 +3,11 @@
 /privacy  /privacy.html  200
 /terms    /terms.html    200
 
-# Free split-review tool — now self-contained on the landing site (JS engine).
-/review   /review.html   200
+# Tools — self-contained on the landing site (client-side, no app servers).
+/tools                /tools.html                 200
+/review               /review.html                200
+/workout-analysis     /review.html                200
+/protein-calculator   /protein-calculator.html    200
+/protein              /protein-calculator.html    200
+/creatine-calculator  /creatine-calculator.html   200
+/creatine             /creatine-calculator.html   200
