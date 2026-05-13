@@ -38,7 +38,7 @@
     failure: /\bto failure\b/i,
     amrap: /\bAMRAP\b/i,
     fiveThreeOne: /\b5\/3\/1\b/,
-    trailTail: /\b(reps?|sets?|each\s+side|e\/s|per\s+side|machine|cable|bb|db)\s*$/i,
+    trailTail: /\b(reps?|sets?|each\s+side|each\s+leg|e\/s|per\s+side|per\s+leg|machine|cable|bb|db)\s*$/i,
     parenTail: /\s*\([^)]*\)\s*$/,
     withTail: /\s+with\s+\S[\w\s\-]*$/i,
     trailPunct: /[:,]+\s*$/
@@ -48,6 +48,11 @@
 
   function parseLine(line) {
     let t = String(line || "").replace(RE.bullet, "");
+    // Em dash is used by users as a separator between exercise name and set
+    // spec ("Bench Press — 3x8"). It's never part of an exercise name. Strip
+    // it early so trailing "Bench Press —" doesn't defeat alias lookup.
+    // (Hyphen and en dash are kept — the rep-range regex uses en dash.)
+    t = t.replace(/—/g, " ");
     t = t.replace(RE.weight, " ").replace(/\s+/g, " ");
     t = t.replace(RE.digitLetter, "$1 $2");
     let intensity = null, rpe = null, rir = null;
