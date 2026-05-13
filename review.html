@@ -238,7 +238,7 @@ Standing Calf Raise 4x12</pre>
 <script src="/js/review-page.js"></script>
 
 <div class="upsell" id="upsell" role="region" aria-label="uppr app">
-  <div class="txt"><strong>Sorted the numbers?</strong>uppr does the training itself: your programme, your weights, your weekly RIR, all of it adapting to you.</div>
+  <div class="txt"><strong>Run this plan in uppr</strong>Auto-progression on your weights and RIR, week to week. Same plan, less guessing.</div>
   <a class="badge" href="https://apps.apple.com/app/uppr-strength-hypertrophy/id6761077703"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download uppr on the App Store"></a>
   <button class="x" id="upsellX" aria-label="Dismiss">&times;</button>
 </div>
@@ -246,12 +246,16 @@ Standing Calf Raise 4x12</pre>
 (function(){
   var bar=document.getElementById('upsell'),x=document.getElementById('upsellX');
   if(!bar||sessionStorage.getItem('upprUpsellDismissed')==='1')return;
-  var shown=false;
+  var shown=false, t=null;
   function show(){if(shown)return;shown=true;bar.classList.add('show');}
-  var t=setTimeout(show,60000);
-  function onScroll(){var d=document.documentElement;if((d.scrollTop+window.innerHeight)/d.scrollHeight>0.6){show();window.removeEventListener('scroll',onScroll);}}
-  window.addEventListener('scroll',onScroll,{passive:true});
-  x.addEventListener('click',function(){bar.classList.remove('show');sessionStorage.setItem('upprUpsellDismissed','1');clearTimeout(t);window.removeEventListener('scroll',onScroll);});
+  // Wait for the user to actually get results before counting down. People
+  // who never make it to a score aren't converters anyway — pushing the bar
+  // at them while they're still pasting their split just annoys them.
+  document.addEventListener('uppr:results-shown',function(){
+    if(t)clearTimeout(t);
+    t=setTimeout(show,60000);
+  });
+  x.addEventListener('click',function(){bar.classList.remove('show');sessionStorage.setItem('upprUpsellDismissed','1');if(t)clearTimeout(t);});
 })();
 </script>
 

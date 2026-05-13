@@ -150,6 +150,10 @@
     $("#form-section").style.display = "none";
     renderRadar(radarUser);
     window.scrollTo({ top: $("#result-section").offsetTop - 80, behavior: "smooth" });
+    // Signal to the upsell that the user has reached a result. The upsell
+    // starts its own delay from here — page-load timers were firing while
+    // people were still pasting their split.
+    document.dispatchEvent(new CustomEvent("uppr:results-shown"));
   }
 
   function renderMuscleList(mv, landmarks) {
