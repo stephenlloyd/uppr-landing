@@ -139,13 +139,13 @@
       </details>
 
       <div class="panel export-panel">
-        <h3>Take this plan into the uppr app</h3>
-        <p class="lede">uppr can run this exact plan — pick your weights, ramp your weekly RIR, swap exercises on the fly, and adjust when life gets in the way.</p>
+        <h3>Import this plan into uppr Strength &amp; Hypertrophy</h3>
+        <p class="lede">Run it as a <strong>progressive, periodised meso cycle</strong> — uppr picks your weights and rep range each session, ramps your weekly RIR for steady overload, spots plateaus before they bite, and adapts when life gets in the way. The same engine that just scored your split takes it from numbers on a page to a programme that trains itself.</p>
         <details>
           <summary>Show import snippet</summary>
           <ol class="export-steps">
             <li>Open <strong>uppr</strong> on your phone.</li>
-            <li>Tap <strong>More</strong> in the bottom bar, then <strong>Import a plan</strong>.</li>
+            <li>Tap <strong>Plans</strong>, then <strong>Import</strong>.</li>
             <li>Paste the snippet below and confirm.</li>
           </ol>
           <textarea class="export-json" id="export-json" readonly>${escapeHtml(JSON.stringify(buildExportJson(r), null, 2))}</textarea>

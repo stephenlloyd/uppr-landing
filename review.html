@@ -118,22 +118,25 @@
     .sub-scores .v{font-weight:800;color:var(--text)}
 
     /* Export-to-uppr panel — surfaces below results so users can copy the
-       parsed split into uppr's import flow. */
-    .export-panel{background:linear-gradient(135deg,rgba(249,115,22,0.10),rgba(251,191,36,0.04)),var(--card);border:1px solid rgba(249,115,22,0.35);border-radius:16px;padding:22px;margin-top:8px}
+       parsed split into uppr's import flow. Blue palette to lean into the
+       app's brand colour and visually distinguish from the orange landing
+       accent (this is the "take it to the app" moment). */
+    .export-panel{background:linear-gradient(135deg,rgba(59,130,246,0.10),rgba(96,165,250,0.03)),var(--card);border:1px solid rgba(59,130,246,0.35);border-radius:16px;padding:22px;margin-top:8px}
     .export-panel h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--text);font-size:18px;margin-bottom:6px;letter-spacing:-0.3px}
-    .export-panel .lede{color:var(--muted);font-size:14px;margin-bottom:14px;line-height:1.55}
-    .export-panel details>summary{cursor:pointer;color:var(--accent);font-weight:700;font-size:14px;padding:10px 14px;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.25);border-radius:10px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+    .export-panel .lede{color:var(--body);font-size:14px;margin-bottom:14px;line-height:1.6}
+    .export-panel .lede strong{color:var(--text);font-weight:700}
+    .export-panel details>summary{cursor:pointer;color:#60a5fa;font-weight:700;font-size:14px;padding:10px 14px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.25);border-radius:10px;list-style:none;display:flex;justify-content:space-between;align-items:center}
     .export-panel details>summary::-webkit-details-marker{display:none}
-    .export-panel details>summary::after{content:"▾";color:var(--accent);transition:transform .2s}
+    .export-panel details>summary::after{content:"▾";color:#60a5fa;transition:transform .2s}
     .export-panel details[open]>summary::after{transform:rotate(180deg)}
     .export-panel details[open]>summary{margin-bottom:14px}
     .export-steps{color:var(--body);font-size:13px;margin:0 0 12px;padding-left:20px;line-height:1.7}
-    .export-steps li::marker{color:var(--accent);font-weight:700}
+    .export-steps li::marker{color:#60a5fa;font-weight:700}
     .export-steps strong{color:var(--text)}
     .export-json{width:100%;min-height:200px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;line-height:1.55;background:var(--surface);color:var(--body);border:1px solid var(--border);border-radius:10px;padding:14px;resize:vertical}
     .export-actions{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
-    .copy-btn{background:var(--accent);color:#0c0a09;border:0;padding:10px 18px;border-radius:9px;font-weight:800;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s}
-    .copy-btn:hover{background:var(--accent-light)}
+    .copy-btn{background:#3b82f6;color:#fff;border:0;padding:10px 18px;border-radius:9px;font-weight:800;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s}
+    .copy-btn:hover{background:#60a5fa}
     .copy-btn.copied{background:var(--green);color:#fff}
     .export-actions .badge-link img{height:40px;border-radius:6px;display:block}
 
@@ -254,8 +257,8 @@ Standing Calf Raise 4x12</pre>
 </div></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script src="/js/review-engine.js?v=20260514b"></script>
-<script src="/js/review-page.js?v=20260514b"></script>
+<script src="/js/review-engine.js?v=20260514c"></script>
+<script src="/js/review-page.js?v=20260514c"></script>
 
 <div class="upsell" id="upsell" role="region" aria-label="uppr app">
   <div class="txt"><strong>Run this plan in uppr</strong>Auto-progression on your weights and RIR, week to week. Same plan, less guessing.</div>
