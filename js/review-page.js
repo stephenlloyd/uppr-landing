@@ -138,6 +138,24 @@
         </div>
       </details>
 
+      <div class="panel export-panel">
+        <h3>Take this plan into the uppr app</h3>
+        <p class="lede">uppr can run this exact plan — pick your weights, ramp your weekly RIR, swap exercises on the fly, and adjust when life gets in the way.</p>
+        <details>
+          <summary>Show import snippet</summary>
+          <ol class="export-steps">
+            <li>Open <strong>uppr</strong> on your phone.</li>
+            <li>Tap <strong>More</strong> in the bottom bar, then <strong>Import a plan</strong>.</li>
+            <li>Paste the snippet below and confirm.</li>
+          </ol>
+          <textarea class="export-json" id="export-json" readonly>${escapeHtml(JSON.stringify(buildExportJson(r), null, 2))}</textarea>
+          <div class="export-actions">
+            <button type="button" class="copy-btn" id="export-copy">Copy snippet</button>
+            <a class="badge-link" href="https://apps.apple.com/app/uppr-strength-hypertrophy/id6761077703"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
+          </div>
+        </details>
+      </div>
+
       <div class="cta">
         <div class="logo-big"><span class="b">u</span><span class="b">p</span><span class="d">p</span><span class="d">r</span></div>
         <h2>Training that gets smarter every session.</h2>
@@ -149,11 +167,71 @@
     $("#result-section").classList.add("show");
     $("#form-section").style.display = "none";
     renderRadar(radarUser);
+    wireExportCopy();
     window.scrollTo({ top: $("#result-section").offsetTop - 80, behavior: "smooth" });
     // Signal to the upsell that the user has reached a result. The upsell
     // starts its own delay from here — page-load timers were firing while
     // people were still pasting their split.
     document.dispatchEvent(new CustomEvent("uppr:results-shown"));
+  }
+
+  // Build a JSON payload that matches the uppr import flow's PlanParser
+  // expectations: top-level { type, name, weeks, rir_ramp, days[] } for
+  // multi-day plans, or { type: "workout", name, exercises[] } for one-offs.
+  function buildExportJson(r) {
+    const isMulti = (r.days || []).length > 1;
+    const formatName = (canonical, raw) => {
+      // canonical is lowercased — title-case it for cleaner display in uppr.
+      if (canonical) return canonical.replace(/\b\w/g, c => c.toUpperCase());
+      return raw || "Exercise";
+    };
+    const formatExercise = (ex) => {
+      const sets = ex.sets || 3;
+      const lo = ex.repLow || 8;
+      const hi = ex.repHigh || lo;
+      const rep_range = lo === hi ? String(lo) : `${lo}-${hi}`;
+      const out = { name: formatName(ex.canonical, ex.rawName), sets, rep_range };
+      if (ex.rir != null) out.rir = ex.rir;
+      return out;
+    };
+    if (isMulti) {
+      return {
+        type: "meso",
+        name: "Imported from uppr review",
+        weeks: 6,
+        rir_ramp: "standard",
+        days: r.days.map(d => ({
+          name: d.label || "Day",
+          exercises: (d.exercises || []).filter(ex => ex.canonical || ex.rawName).map(formatExercise)
+        }))
+      };
+    }
+    const day = r.days?.[0];
+    return {
+      type: "workout",
+      name: day?.label || "Workout",
+      exercises: (day?.exercises || []).filter(ex => ex.canonical || ex.rawName).map(formatExercise)
+    };
+  }
+
+  function wireExportCopy() {
+    const btn = document.getElementById("export-copy");
+    const ta = document.getElementById("export-json");
+    if (!btn || !ta) return;
+    btn.addEventListener("click", () => {
+      const done = () => {
+        btn.textContent = "Copied";
+        btn.classList.add("copied");
+        setTimeout(() => { btn.textContent = "Copy snippet"; btn.classList.remove("copied"); }, 2000);
+      };
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(ta.value).then(done, () => { ta.select(); document.execCommand("copy"); done(); });
+      } else {
+        ta.select();
+        document.execCommand("copy");
+        done();
+      }
+    });
   }
 
   function renderMuscleList(mv, landmarks) {
