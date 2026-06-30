@@ -10,11 +10,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://uppr.fit">
   <meta property="og:site_name" content="uppr">
-  <!-- Explicit og:image stops LinkedIn / Slack / FB / iMessage from scraping
-       the page and picking the Google Play badge (the largest visible img on
-       the page, misleading for an iOS-only release). Until a designed
-       1200x630 OG image is dropped in, use a phone screenshot — portrait,
-       letterboxed by platforms, but at least on-brand and not misleading. -->
+  <!-- Explicit og:image keeps LinkedIn / Slack / FB / iMessage from scraping
+       a random badge or screenshot. Until a designed 1200x630 OG image is
+       dropped in, use a phone screenshot — portrait, letterboxed by
+       platforms, but at least on-brand. -->
   <meta property="og:image" content="https://uppr.fit/ss-2-home.jpg">
   <meta property="og:image:width" content="1080">
   <meta property="og:image:height" content="2316">
@@ -54,9 +53,6 @@
     .badge-link:hover{transform:scale(1.04);opacity:1}
     .badge-link img{height:52px;border-radius:8px}
     .badge-link.gp img{height:76px;margin:-12px 0}
-    .badge-link.soon{opacity:0.4;cursor:default;position:relative;filter:grayscale(0.4)}
-    .badge-link.soon:hover{transform:none;opacity:0.4}
-    .badge-link.soon::after{content:'Coming soon';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-6deg);background:var(--accent);color:#0c0a09;font-family:'Plus Jakarta Sans';font-weight:800;font-size:10px;letter-spacing:0.5px;padding:2px 8px;border-radius:4px;white-space:nowrap;text-transform:uppercase}
     .trial-line{color:var(--dim);font-size:14px}
     .trial-line b{color:var(--green);font-weight:600}
 
@@ -204,7 +200,7 @@
   <p class="sub">Periodised hypertrophy with <strong>real progression</strong>. The app learns your strength, matches your equipment, and tells you exactly what to lift next. Free to use. Works offline.</p>
   <div class="badges">
     <a href="https://apps.apple.com/app/uppr-strength-hypertrophy/id6761077703" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
-    <span class="badge-link gp soon"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play — coming soon"></span>
+    <a href="https://play.google.com/store/apps/details?id=fit.uppr.app" class="badge-link gp"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
   </div>
   <p class="trial-line"><b>Free forever.</b> Pro features unlocked for 30 days. No credit card.</p>
 </div></section>
@@ -423,7 +419,7 @@
   <p class="sub">Free forever. Pro unlocked for 30 days. No credit card.</p>
   <div class="badges">
     <a href="https://apps.apple.com/app/uppr-strength-hypertrophy/id6761077703" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
-    <span class="badge-link gp soon"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play — coming soon"></span>
+    <a href="https://play.google.com/store/apps/details?id=fit.uppr.app" class="badge-link gp"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
   </div>
 </div></section>
 
