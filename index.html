@@ -129,6 +129,17 @@
     .gbox h2{font-size:26px;margin-bottom:12px;font-weight:800;letter-spacing:-0.5px}
     .gbox p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto;line-height:1.6}
 
+    /* MCP announcement band */
+    .mcpband{background:linear-gradient(135deg,rgba(249,115,22,0.09),rgba(251,191,36,0.04));border:1px solid rgba(249,115,22,0.25);border-radius:20px;padding:48px;max-width:820px;margin:0 auto;text-align:center}
+    .mcpband .badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:12px;padding:6px 14px;border-radius:8px;margin-bottom:18px;text-transform:uppercase;letter-spacing:1.5px}
+    .mcpband h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;letter-spacing:-0.6px;margin-bottom:14px}
+    .mcpband h2 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .mcpband>p{color:var(--muted);font-size:16px;max-width:600px;margin:0 auto 12px;line-height:1.65}
+    .mcp-clients{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:26px 0 8px}
+    .mcp-clients span{font-size:13px;font-weight:600;color:var(--body);background:var(--card);border:1px solid var(--border);border-radius:999px;padding:8px 16px}
+    .mcpband .how{color:var(--dim);font-size:13px;margin-top:20px}
+    .mcpband .how b{color:var(--accent-light);font-weight:600}
+
     /* Steps */
     .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;counter-reset:s}
     .sc{counter-increment:s;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
@@ -313,6 +324,19 @@
   </div>
 </div></section>
 
+<!-- MCP -->
+<section id="mcp" style="padding-top:20px"><div class="ctr"><div class="mcpband reveal">
+  <div class="badge">New &middot; Pro</div>
+  <h2>Connect <em>any AI</em> to your training.</h2>
+  <p>uppr now speaks MCP. Link Claude, ChatGPT, or any MCP client to your account and just ask &mdash; <strong style="color:var(--text)">"How's my bench trending?"</strong> or <strong style="color:var(--text)">"Build me a push day."</strong> The AI reads your real training data and drafts or adjusts your plans, using the same progression engine as the app.</p>
+  <div class="mcp-clients">
+    <span>Claude</span>
+    <span>ChatGPT</span>
+    <span>Any MCP client</span>
+  </div>
+  <p class="how">Set it up in the app under <b>More &rarr; Connect to uppr MCP</b>. Access is scoped, revocable, and never touches your logged history &mdash; only your plans.</p>
+</div></div></section>
+
 <!-- PROBLEMS -->
 <section style="padding-top:40px"><div class="ctr">
   <div class="sh">
@@ -353,6 +377,7 @@
     <div class="fc"><div class="tag pro">Pro</div><h3>Your plan adapts to you</h3><p>Rate each workout honestly. Too easy? Volume goes up. Joints aching? It dials back. Hated an exercise? Swapped out. Your feedback actually shapes next week.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Saved workouts</h3><p>Great session? Save it as a reusable template with one tap. Build up a library of your favourites and start any of them instantly.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Smart supersets</h3><p>Pair two exercises and the app alternates between them. Smart recommendations rank pairings by muscle compatibility and equipment. Good pairs highlighted, tough pairs flagged.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Connect any AI (MCP)</h3><p>Link Claude, ChatGPT, or any MCP client to your account. Ask how a lift is trending or have it build and adjust real plans, on your data. Scoped, revocable, and it never touches your logged history.</p></div>
   </div>
 </div></section>
 
@@ -409,6 +434,7 @@
     <details><summary>Does it work offline?</summary><p>Yes. The workout screen works with zero internet. Data syncs when you're back online. No dropped sets because you trained somewhere with no signal.</p></details>
     <details><summary>Can I import my coach's plan?</summary><p>Any format. Use the built-in prompt builder with any AI to convert spreadsheets, PDFs, or text messages. Your coach's programming is preserved and the app layers equipment filtering and weekly progression on top.</p></details>
     <details><summary>What if I just want a quick workout?</summary><p>Tap Quick Workout, pick your target muscles. Smart Coach checks what you've been neglecting and builds a session to fill the gaps. Uses exercises you've done before so there's no discovery overhead.</p></details>
+    <details><summary>Can I connect Claude or ChatGPT to uppr?</summary><p>Yes, with Pro. uppr speaks MCP, so you can link Claude, ChatGPT, or any MCP client to your account and ask it about your training or have it build and adjust plans on your real data. Set it up in the app under More → Connect to uppr MCP. Access is scoped and revocable, and it never modifies your logged history, only your plans.</p></details>
     <details><summary>Is my data private?</summary><p>Yes. No ad trackers. No data sales. No third-party analytics. Export everything or delete your account any time.</p></details>
   </div>
 </div></section>
