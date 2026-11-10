@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>uppr — Strength &amp; Hypertrophy Training That Adapts to You</title>
-  <meta name="description" content="A free strength and hypertrophy training app with periodised progression, equipment-aware workouts, 1RM tracking, and offline mode. Upgrade to Pro for smart suggestions and 100+ templates.">
-  <meta property="og:title" content="uppr — Hypertrophy Training That Adapts to You">
-  <meta property="og:description" content="Strength and hypertrophy training that adapts every week. Free to use. Equipment-aware. Works offline.">
+  <title>uppr — Your AI builds the plan. Uppr runs it.</title>
+  <meta name="description" content="ChatGPT, Claude or any MCP client reads your training history and writes your programme. Uppr runs it with progression and offline logging. Logged sessions stay on your account for the AI to read back.">
+  <meta property="og:title" content="uppr — Your AI builds the plan. Uppr runs it.">
+  <meta property="og:description" content="ChatGPT, Claude or any MCP client reads your training history and writes your programme. Uppr runs it with progression and offline logging. Logged sessions stay on your account for the AI to read back.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://uppr.fit">
   <meta property="og:site_name" content="uppr">
@@ -19,6 +19,8 @@
   <meta property="og:image:height" content="2316">
   <meta property="og:image:alt" content="uppr — home screen showing your next workout and weekly schedule">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="uppr — Your AI builds the plan. Uppr runs it.">
+  <meta name="twitter:description" content="ChatGPT, Claude or any MCP client reads your training history and writes your programme. Uppr runs it with progression and offline logging. Logged sessions stay on your account for the AI to read back.">
   <meta name="twitter:image" content="https://uppr.fit/ss-2-home.jpg">
   <meta name="theme-color" content="#0c0a09">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -46,13 +48,17 @@
     .hero>*{position:relative;z-index:1}
     .hero h1{font-weight:800;font-size:clamp(38px,6.5vw,68px);line-height:1.06;margin-bottom:24px;letter-spacing:-2px}
     .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero .sub{font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.6}
+    .hero .sub{font-size:18px;color:var(--muted);max-width:720px;margin:0 auto 36px;line-height:1.6}
     .hero .sub strong{color:var(--text);font-weight:600}
     .badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center;margin-bottom:16px}
     .badge-link{display:flex;align-items:center;height:52px;transition:transform 0.2s,opacity 0.2s;opacity:0.9}
     .badge-link:hover{transform:scale(1.04);opacity:1}
     .badge-link img{height:52px;border-radius:8px}
     .badge-link.gp img{height:76px;margin:-12px 0}
+    .connect-cta{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 22px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ea580c);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:-0.2px;box-shadow:0 8px 24px rgba(249,115,22,0.28);transition:transform 0.2s,opacity 0.2s}
+    .connect-cta:hover{transform:scale(1.04)}
+    nav .connect-cta{height:36px;padding:0 14px;font-size:13px;box-shadow:none}
+    .fine{color:var(--muted);font-size:14px;max-width:680px;margin:4px auto 14px;line-height:1.55}
     .trial-line{color:var(--dim);font-size:14px}
     .trial-line b{color:var(--green);font-weight:600}
 
@@ -120,6 +126,8 @@
     .fc .tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
     .fc .tag.free{color:var(--green)}
     .fc .tag.pro{color:var(--accent)}
+    .fc .tag.second{color:var(--dim)}
+    .fc .tag.ai{color:var(--accent)}
     .fc h3{font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px}
     .fc p{font-size:14px;color:var(--muted);line-height:1.6}
 
@@ -184,6 +192,8 @@
     @media(max-width:768px){
       .hero{padding:60px 0 0}
       .hero-phone{width:220px}
+      nav .inner{flex-wrap:wrap;gap:10px}
+      nav .links{flex-wrap:wrap;gap:12px;justify-content:flex-end}
       .cred-inner{gap:20px}
       .spotlight-inner{flex-direction:column!important;gap:32px;text-align:center;padding:0 24px;min-height:auto}
       .spotlight-text{flex:1 1 auto}
@@ -202,32 +212,51 @@
     <a href="#compare">Compare</a>
     <a href="/tools.html">Tools</a>
     <a href="#faq">FAQ</a>
+    <a class="connect-cta" href="https://app.uppr.fit/ai">Connect your AI</a>
   </div>
 </div></nav>
 
 <!-- HERO -->
 <section class="hero"><div class="ctr">
-  <h1>Training that<br>gets <em>smarter</em><br>every session.</h1>
-  <p class="sub">Periodised hypertrophy with <strong>real progression</strong>. The app learns your strength, matches your equipment, and tells you exactly what to lift next. Free to use. Works offline.</p>
+  <h1>Your AI builds the plan.<br><em>Uppr runs it.</em></h1>
+  <p class="sub">ChatGPT, Claude or any MCP client reads your training history and writes your programme. Uppr runs it with progression and offline logging, and logged sessions stay on your account for the AI to read back.</p>
   <div class="badges">
     <a href="https://apps.apple.com/app/uppr-strength-hypertrophy/id6761077703" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
     <a href="https://play.google.com/store/apps/details?id=fit.uppr.app" class="badge-link gp"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+    <a class="connect-cta" href="https://app.uppr.fit/ai">Connect your AI</a>
   </div>
+  <p class="fine">An AI plan arrives as a draft you Accept. The AI previews changes first. You can disconnect in the app.</p>
   <p class="trial-line"><b>Free forever.</b> Pro features unlocked for 30 days. No credit card.</p>
 </div></section>
 
 <div class="cred"><div class="ctr"><div class="cred-inner">
-  <div class="cred-item"><div class="val">Works offline</div><div class="lbl">Log sets with zero signal</div></div>
-  <div class="cred-item"><div class="val">100+ templates</div><div class="lbl">PPL, Arnold, PHUL, and more</div></div>
-  <div class="cred-item"><div class="val">Equipment-aware</div><div class="lbl">Suggestions match your actual gym</div></div>
-  <div class="cred-item"><div class="val">1RM tracking</div><div class="lbl">Updated from every set you log</div></div>
+  <div class="cred-item"><div class="val">Reads your history</div><div class="lbl">ChatGPT, Claude, or any MCP client</div></div>
+  <div class="cred-item"><div class="val">Draft you Accept</div><div class="lbl">An AI plan arrives as a draft</div></div>
+  <div class="cred-item"><div class="val">Uppr runs it</div><div class="lbl">Progression and offline logging</div></div>
+  <div class="cred-item"><div class="val">Disconnect</div><div class="lbl">You can disconnect in the app</div></div>
 </div></div></div>
+
+<!-- AI -->
+<section id="ai" style="padding-top:56px;padding-bottom:20px"><div class="ctr"><div class="mcpband">
+  <div class="badge">Connect your AI</div>
+  <h2>Your AI builds the plan. <em>Uppr runs it.</em></h2>
+  <p>ChatGPT, Claude or any MCP client reads your training history and writes your programme. Uppr runs it with progression and offline logging, and logged sessions stay on your account for the AI to read back.</p>
+  <p>An AI plan arrives as a draft you Accept. The AI previews changes first. You can disconnect in the app.</p>
+  <div class="mcp-clients">
+    <span>ChatGPT</span>
+    <span>Claude</span>
+    <span>Any MCP client</span>
+  </div>
+  <div class="badges" style="margin-top:22px;margin-bottom:0">
+    <a class="connect-cta" href="https://app.uppr.fit/ai">Connect your AI</a>
+  </div>
+</div></div></section>
 
 <!-- FEATURE SPOTLIGHTS — screenshots woven into the story -->
 <section><div class="ctr">
   <div class="sh">
-    <h2>Built for the gym, not the sofa</h2>
-    <p>This is what your next session actually looks like.</p>
+    <h2>Uppr runs it</h2>
+    <p>Progression and offline logging, on the session in front of you. Logged sessions stay on your account for the AI to read back.</p>
   </div>
 
   <div class="spotlights-wrap">
@@ -242,7 +271,7 @@
           </div>
           <div class="spotlight-visual">
             <div class="spotlight-carousel" data-carousel>
-              <div class="sp-phone"><img src="ss-2-home.jpg" alt="Home screen" loading="lazy"></div>
+              <div class="sp-phone active"><img src="ss-2-home.jpg" alt="Home screen" loading="lazy"></div>
               <div class="sp-phone"><img src="ss-5-heatmap.jpg" alt="Training heatmap" loading="lazy"></div>
               <div class="sp-phone"><img src="ss-9-continue.jpg" alt="Continue workout" loading="lazy"></div>
             </div>
@@ -259,7 +288,7 @@
           </div>
           <div class="spotlight-visual">
             <div class="spotlight-carousel" data-carousel>
-              <div class="sp-phone"><img src="ss-1-workout.jpg" alt="Workout logging" loading="lazy"></div>
+              <div class="sp-phone active"><img src="ss-1-workout.jpg" alt="Workout logging" loading="lazy"></div>
               <div class="sp-phone"><img src="ss-10-discovery.jpg" alt="Discovery mode" loading="lazy"></div>
             </div>
           </div>
@@ -275,7 +304,7 @@
           </div>
           <div class="spotlight-visual">
             <div class="spotlight-carousel" data-carousel>
-              <div class="sp-phone"><img src="ss-4-strength.jpg" alt="96th percentile" loading="lazy"></div>
+              <div class="sp-phone active"><img src="ss-4-strength.jpg" alt="96th percentile" loading="lazy"></div>
               <div class="sp-phone"><img src="ss-3-progress.jpg" alt="Progress dashboard" loading="lazy"></div>
               <div class="sp-phone"><img src="ss-11-graph.jpg" alt="1RM progress graph" loading="lazy"></div>
             </div>
@@ -301,13 +330,13 @@
       <div class="spotlight">
         <div class="spotlight-inner">
           <div class="spotlight-text">
-            <div class="label">Plans + exercises</div>
-            <h3>100+ templates.<br>Or build your own.</h3>
-            <p>Browse proven plans, import from your coach, or create from scratch. Every exercise has video demos, form cues, and personalised preferences. Heart what you love.</p>
+            <div class="label">Second, if you want them</div>
+            <h3>Built-in strength and<br>hypertrophy plans.</h3>
+            <p>Templates are still here, after your AI. So is JSON and CSV import and export. Browse a plan, bring a programme in, or take your history out. Every exercise still has video demos, form cues, and personalised preferences.</p>
           </div>
           <div class="spotlight-visual">
             <div class="spotlight-carousel" data-carousel>
-              <div class="sp-phone"><img src="ss-7-plans.jpg" alt="Training templates" loading="lazy"></div>
+              <div class="sp-phone active"><img src="ss-7-plans.jpg" alt="Training templates" loading="lazy"></div>
               <div class="sp-phone"><img src="ss-8-exercise.jpg" alt="Exercise detail" loading="lazy"></div>
               <div class="sp-phone"><img src="ss-12-catalogue.jpg" alt="Exercise catalogue" loading="lazy"></div>
             </div>
@@ -324,18 +353,17 @@
   </div>
 </div></section>
 
-<!-- MCP -->
-<section id="mcp" style="padding-top:20px"><div class="ctr"><div class="mcpband reveal">
-  <div class="badge">New &middot; Pro</div>
-  <h2>Connect <em>any AI</em> to your training.</h2>
-  <p>uppr now speaks MCP. Link Claude, ChatGPT, or any MCP client to your account and just ask &mdash; <strong style="color:var(--text)">"How's my bench trending?"</strong> or <strong style="color:var(--text)">"Build me a push day."</strong> The AI reads your real training data and drafts or adjusts your plans, using the same progression engine as the app.</p>
-  <div class="mcp-clients">
-    <span>Claude</span>
-    <span>ChatGPT</span>
-    <span>Any MCP client</span>
+<!-- PLANS + IMPORT, second -->
+<section id="plans" style="padding-top:24px"><div class="ctr">
+  <div class="sh">
+    <h2>Built-in plans, and import and export</h2>
+    <p>These come second. Built-in strength and hypertrophy plans are still in the app, and so is JSON and CSV import and export.</p>
   </div>
-  <p class="how">Set it up in the app under <b>More &rarr; Connect to uppr MCP</b>. Access is scoped, revocable, and never touches your logged history &mdash; only your plans.</p>
-</div></div></section>
+  <div class="feat-grid">
+    <div class="fc"><div class="tag second">Second</div><h3>Strength and hypertrophy plans</h3><p>PPL, Arnold, PHUL, and the rest of the template library. Uppr still runs a built-in plan with progression and offline logging.</p></div>
+    <div class="fc"><div class="tag second">Second</div><h3>JSON and CSV import and export</h3><p>Bring a programme in, or take your history out. Logged sessions stay on your account either way, ready for the AI to read back.</p></div>
+  </div>
+</div></section>
 
 <!-- PROBLEMS -->
 <section style="padding-top:40px"><div class="ctr">
@@ -359,6 +387,7 @@
     <p>Free users get a real app. Pro unlocks the smart stuff.</p>
   </div>
   <div class="feat-grid">
+    <div class="fc"><div class="tag ai">AI</div><h3>Connect your AI</h3><p>ChatGPT, Claude or any MCP client reads your training history and writes your programme. An AI plan arrives as a draft you Accept. The AI previews changes first. You can disconnect in the app. Logged sessions stay on your account for the AI to read back.</p></div>
     <div class="fc"><div class="tag free">Free</div><h3>Build your own plans</h3><p>Pick your days, muscle groups, exercises, and focus areas. Choose an RIR progression or let the app handle it. 5 starter templates included if you'd rather not start from scratch.</p></div>
     <div class="fc"><div class="tag free">Free</div><h3>Full workout logging</h3><p>Sets, reps, weight, RIR. Swap exercises mid-workout. Quick workouts by muscle group. Skip sessions or add bonus ones. Works completely offline. No ads.</p></div>
     <div class="fc"><div class="tag free">Free</div><h3>Discovery mode + 1RM</h3><p>New exercise? Two calibration sets and the app knows your working weight. From there, your estimated 1RM updates with every set you log.</p></div>
@@ -370,14 +399,13 @@
     <div class="fc"><div class="tag pro">Pro</div><h3>Smart Coach workouts</h3><p>Not sure what to train? Smart Coach looks at your last 2 weeks, finds what you've been neglecting, and builds a session to fill the gaps.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Weight + rep targets</h3><p>Based on your 1RM and target RIR, you get an exact weight and rep count for every set. Adjusts for fatigue as you go. Change the weight and reps update in real time.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Equipment profiles</h3><p>Full gym, home setup, hotel, travel. Create a profile for each and switch mid-workout. Exercises swap automatically to match what's available.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>100+ templates</h3><p>PPL, Arnold, PHAT, PHUL, Gamma Bomb, Strong Curves, and plenty more. 2 to 6 days a week. Built against research-backed volume targets.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Import any plan</h3><p>Got a plan from your coach? A PDF, spreadsheet, or text message? Paste it in and the AI converts it. Your coach's programming stays intact, the app adds the smart stuff on top.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Built-in strength and hypertrophy plans</h3><p>PPL, Arnold, PHAT, PHUL, Gamma Bomb, Strong Curves, and the rest of the template library. 100+ on Pro, five on the free tier. These come second, after a programme from your AI.</p></div>
+    <div class="fc"><div class="tag second">Second</div><h3>JSON and CSV import and export</h3><p>Bring a programme in, or take your history out. Logged sessions stay on your account for the AI to read back.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Periodised progression</h3><p>RIR ramps build intensity week over week. Focus muscles get pushed harder. A deload shows up when your body needs it. The kind of system coaches charge hundreds for.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Coach reports + analytics</h3><p>Weekly reports covering strength trends, volume compliance, and honest feedback analysis. Copy into your preferred AI for instant coaching advice.</p></div>
+    <div class="fc"><div class="tag pro">Pro</div><h3>Coach reports + analytics</h3><p>Weekly reports covering strength trends, volume compliance, and feedback. Logged sessions stay on your account, so a connected AI can read them back.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Your plan adapts to you</h3><p>Rate each workout honestly. Too easy? Volume goes up. Joints aching? It dials back. Hated an exercise? Swapped out. Your feedback actually shapes next week.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Saved workouts</h3><p>Great session? Save it as a reusable template with one tap. Build up a library of your favourites and start any of them instantly.</p></div>
     <div class="fc"><div class="tag pro">Pro</div><h3>Smart supersets</h3><p>Pair two exercises and the app alternates between them. Smart recommendations rank pairings by muscle compatibility and equipment. Good pairs highlighted, tough pairs flagged.</p></div>
-    <div class="fc"><div class="tag pro">Pro</div><h3>Connect any AI (MCP)</h3><p>Link Claude, ChatGPT, or any MCP client to your account. Ask how a lift is trending or have it build and adjust real plans, on your data. Scoped, revocable, and it never touches your logged history.</p></div>
   </div>
 </div></section>
 
@@ -403,7 +431,6 @@
       <tr><td>Periodised RIR progression</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td></tr>
       <tr><td>Feedback adjusts your plan</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="y">&#10003;</td><td class="y">&#10003;</td><td class="n">&#10007;</td></tr>
       <tr><td>Equipment profiles</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="s">?</td></tr>
-      <tr><td>Import any plan via AI</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="n">&#10007;</td></tr>
       <tr><td>Coach reports</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="s">?</td><td class="s">?</td><td class="s">?</td><td class="n">&#10007;</td></tr>
       <tr><td>Strength ranking (beginner to elite)</td><td class="y free-col">&#10003;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="s">?</td><td class="n">&#10007;</td></tr>
       <tr><td>Coach plans sent to you</td><td class="n free-col">&#10007;</td><td class="y pro-col">&#10003;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="n">&#10007;</td><td class="n">&#10007;</td></tr>
@@ -427,26 +454,28 @@
 <section id="faq"><div class="ctr">
   <div class="sh"><h2>Questions</h2></div>
   <div class="faq-list">
-    <details><summary>What makes this different from Hevy or Strong?</summary><p>Hevy and Strong are great loggers. uppr also tells you what to do next. It estimates your 1RM from every set, gives you weight and rep targets based on your actual strength, and adjusts your plan based on how you felt. Think logger vs. coach.</p></details>
-    <details><summary>How does it compare to RP Hypertrophy or Juggernaut?</summary><p>RP and Juggernaut pioneered science-based training apps. We added equipment awareness (they don't know what gym you're in), AI plan import, discovery mode, multiple gym profiles, and a free tier that's genuinely usable. The comparison table is honest.</p></details>
+    <details><summary>What makes this different from Hevy or Strong?</summary><p>Hevy and Strong are loggers. With uppr, ChatGPT, Claude or any MCP client reads your training history and writes your programme. Uppr runs it with progression and offline logging. An AI plan arrives as a draft you Accept, and the AI previews changes first.</p></details>
+    <details><summary>How does it compare to RP Hypertrophy or Juggernaut?</summary><p>RP and Juggernaut pioneered science-based training apps. We added equipment awareness (they don't know what gym you're in), JSON and CSV import and export, discovery mode, multiple gym profiles, and a free tier that's genuinely usable. Your AI writes the programme. The comparison table is honest.</p></details>
     <details><summary>Do I need to understand RIR or periodisation?</summary><p>Nope. RIR is the engine under the hood. You just log your sets, rate how it felt, and the app handles progression. If you do understand it, the target RIR is shown on every exercise.</p></details>
     <details><summary>What's discovery mode?</summary><p>First time doing an exercise? The app runs 2 quick calibration sets, one light, one heavier. From that it estimates your 1RM and calculates working weight. Takes about 4 minutes. After that, suggestions are based on your real strength.</p></details>
     <details><summary>Does it work offline?</summary><p>Yes. The workout screen works with zero internet. Data syncs when you're back online. No dropped sets because you trained somewhere with no signal.</p></details>
-    <details><summary>Can I import my coach's plan?</summary><p>Any format. Use the built-in prompt builder with any AI to convert spreadsheets, PDFs, or text messages. Your coach's programming is preserved and the app layers equipment filtering and weekly progression on top.</p></details>
+    <details><summary>Can I import or export my training?</summary><p>Yes. JSON and CSV import and export sit alongside the built-in strength and hypertrophy plans. They come second. Your AI comes first. Logged sessions stay on your account for the AI to read back.</p></details>
     <details><summary>What if I just want a quick workout?</summary><p>Tap Quick Workout, pick your target muscles. Smart Coach checks what you've been neglecting and builds a session to fill the gaps. Uses exercises you've done before so there's no discovery overhead.</p></details>
-    <details><summary>Can I connect Claude or ChatGPT to uppr?</summary><p>Yes, with Pro. uppr speaks MCP, so you can link Claude, ChatGPT, or any MCP client to your account and ask it about your training or have it build and adjust plans on your real data. Set it up in the app under More → Connect to uppr MCP. Access is scoped and revocable, and it never modifies your logged history, only your plans.</p></details>
+    <details><summary>Can I connect Claude or ChatGPT to uppr?</summary><p>Yes. <a href="https://app.uppr.fit/ai" style="color:var(--accent-light)">Connect your AI</a>. ChatGPT, Claude or any MCP client reads your training history and writes your programme. An AI plan arrives as a draft you Accept. The AI previews changes first. You can disconnect in the app. Logged sessions stay on your account for the AI to read back.</p></details>
     <details><summary>Is my data private?</summary><p>Yes. No ad trackers. No data sales. No third-party analytics. Export everything or delete your account any time.</p></details>
   </div>
 </div></section>
 
 <!-- FINAL CTA -->
 <section class="final"><div class="ctr">
-  <h2>Start training smarter.<br><em style="font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Today.</em></h2>
-  <p class="sub">Free forever. Pro unlocked for 30 days. No credit card.</p>
+  <h2>Your AI builds the plan.<br><em style="font-style:normal;background:linear-gradient(135deg,var(--accent),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Uppr runs it.</em></h2>
+  <p class="sub">ChatGPT, Claude or any MCP client reads your training history and writes your programme. Uppr runs it with progression and offline logging.</p>
   <div class="badges">
     <a href="https://apps.apple.com/app/uppr-strength-hypertrophy/id6761077703" class="badge-link"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store"></a>
     <a href="https://play.google.com/store/apps/details?id=fit.uppr.app" class="badge-link gp"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+    <a class="connect-cta" href="https://app.uppr.fit/ai">Connect your AI</a>
   </div>
+  <p class="fine">An AI plan arrives as a draft you Accept. The AI previews changes first. You can disconnect in the app.</p>
 </div></section>
 
 <footer><div class="ctr inner">
